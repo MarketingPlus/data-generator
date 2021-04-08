@@ -1,0 +1,38 @@
+/* General variables */
+:root {
+    --general-container: 300px;
+    --border-radius: 10px;
+}
+
+/* Global border class for checking containers */
+.border {
+    border: 1px solid black;
+}
+
+/* The overall container for each app selection */
+.overall-container {
+    margin: 50px auto;
+    width: 80%;
+}
+
+
+/* Container for user generator section */
+.user-generator-container {
+    height: var(--general-container);
+    border-radius: var(--border-radius);
+    background-color: black;
+}
+
+/* Container for lorem ipsum section */
+.lorem-ipsum-container {
+    height: var(--general-container);
+    border-radius: var(--border-radius);
+    background-color: gray;
+}
+
+/* Container for placeholder section */
+.placeholder-container {
+    height: var(--general-container);
+    border-radius: var(--border-radius);
+    background-color: gainsboro;
+}
