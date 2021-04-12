@@ -23,21 +23,17 @@ $(".close-button").on("click", function() {
 })
 
 
-// Lorem Ipsum fetch
+// Lorem Ipsum API request
 var loremIpsumUrl = "https://loripsum.net/api";
 
+$.ajax({
+    url: loremIpsumUrl,
+    method: "GET"
+}).then(function(response) {
+    console.log("Lorem Ipsum response ------")
+    console.log(response)
+})
 
-// $.ajax({
-//     url: loremIpsumUrl,
-//     method: "GET"
-// }).then(function(response) {
-//     console.log(response)
-// })
-
-fetch("loripsum.net/api")
-    .then(function(responseOne) {
-        console.log(responseOne);
-    })
 
 
 /* function for generating the placeholder image
