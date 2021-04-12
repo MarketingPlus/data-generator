@@ -1,33 +1,28 @@
 
-/* function for displaying the form/modal which hides carousal 
-$('.').click(function() {
-    $('.').css("display", "none");
-    $('.').css("display", "block");
-});  */
+// Shows modals on click
+$("#user-generator-carousel").on("click", function() {
+    $("#userGeneratorForm").css("display", "block")
+    $("#carouselExampleIndicators").css("display", "none")
+})
 
-/* function for closing the or hitting back in the modal to go back to home page (same thing as showing carousal)
-$('.').click(function() {
-    $('.').css("display", "none");
-    $('.').css("display", "block");
-});  */
+$("#lorem-ipsum-carousel").on("click", function() {
+    $("#loremIpsumForm").css("display", "block")
+    $("#carouselExampleIndicators").css("display", "none")
+})
 
-/* function for when users click the submit button on the user generator form
-$('.').click(function() {
-    $('.').css("display", "none");
-    $('.').css("display", "block");
-});  */
+$("#placeholder-carousel").on("click", function() {
+    $("#placeholderForm").css("display", "block")
+    $("#carouselExampleIndicators").css("display", "none")
+})
 
-/* function for when users click the submit button on the lorem ipsum generator form
-$('.').click(function() {
-    $('.').css("display", "none");
-    $('.').css("display", "block");
-});  */
+$(".close-button").on("click", function() {
+    $("#loremIpsumForm").css("display", "none");
+    $("#userGeneratorForm").css("display", "none");
+    $("#placeholderForm").css("display", "none")
+    $("#carouselExampleIndicators").css("display", "block")
+})
 
-/* function for when users click the submit button on the image placerholder generator form
-$('.').click(function() {
-    $('.').css("display", "none");
-    $('.').css("display", "block");
-});  */
+
 
 
 /* function for generating the placeholder image
