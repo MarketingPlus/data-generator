@@ -5,11 +5,14 @@
 }
 
 
-body {
+
+main {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    border: 1px solid #22222200;
+    overflow: hidden;
+    height: 800px;
 }
+
 /* Global border class for checking containers */
 .border {
     border: 1px solid black;
@@ -63,4 +66,24 @@ body {
     margin-right: auto;
     height: 30%; 
     width: 60%;
+}
+
+.general-form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+}
+
+.close-button {
+    width: 20px;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    opacity: 50%;
 }
