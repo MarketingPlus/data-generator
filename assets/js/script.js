@@ -1,5 +1,4 @@
 
-
 /* function for displaying the form/modal which hides carousal 
 $('.').click(function() {
     $('.').css("display", "none");
