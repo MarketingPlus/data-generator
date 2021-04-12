@@ -49,3 +49,14 @@ $('.').click(function() {
         `);
     });
 */ 
+
+
+/* 
+var fullNameVal = $("#").val()
+var emailVal = $("#").val()
+var genderVal = $("#").val();
+var dateOfBirthVal = $("#").val();
+var phoneNumberVal = $("#").val();
+var pictureVal = $("#").val();
+*/
+
