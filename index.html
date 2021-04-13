@@ -26,29 +26,33 @@
           <div id="user-generator-carousel" class="carousel-item active">
             <section class="d-block w-100 general-container">
                 <section class="carousel-section app">
-                 <p>User Generator</p>
+                  <img src="./assets/images/white-person.svg" class="click-icon"/>
                 </section>
-                <section class="carousel-section description">
+                <section class="carousel-section description aktiv-grotesk-bold">
+                  <p class="section-header">USER GENERATOR</p>
+                  <p class="section-desc aktiv-grotesk-thin">Create a person that does not exist. Set your specifications of choice.</p>
                 </section>
             </section>
           </div>
           <div id="lorem-ipsum-carousel" class="carousel-item">
             <section class="d-block w-100 general-container">
               <section class="carousel-section app">
-                <p>Lorem Ipsum</p>
+                <img src="./assets/images/message.svg" class="click-icon"/>
               </section>
-              <section class="carousel-section description">
-            
+              <section class="carousel-section description aktiv-grotesk-bold">
+                <p class="section-header">LOREM IPSUM</p>
+                <p class="section-desc aktiv-grotesk-thin">A flexible application that will create filler text copy for any website. </p>
               </section>
             </section>
           </div>
           <div id="placeholder-carousel" class="carousel-item">
             <section class="d-block w-100 general-container">
               <section class="carousel-section app">
-                <p>Picture Placeholder</p>
+                <img src="./assets/images/snap.svg" class="click-icon"/>
               </section>
-              <section class="carousel-section description">
-               
+              <section class="carousel-section description aktiv-grotesk-bold">
+                <p class="section-header">PLACEHOLDER</p>
+                <p class="section-desc aktiv-grotesk-thin">When activated this program will generate a random photo of an unseen person.</p>
               </section>
             </section>
           </div>
@@ -63,14 +67,13 @@
       <!-- Form syntax below -->
       <section id="userGeneratorForm" class="general-form" style="display: none;">
 <!-- Heading for forms section -->
-<h1 class="formTitle">Forms</h1>
+        <h1 class="formTitle">Forms</h1>
 <!-- Forms, sliders, switches, user inputs, etc -->
-                    <form class= "forms">
-
-                        <label class="labelUserNumber" for="labelUserNumber">Number of Users</label>
-                      <div>
+        <form id= "generateUser" class= "forms">
+          <label class="labelUserNumber" for="labelUserNumber">Number of Users</label>
+          <div>
 <!-- Range slider -->
-                        <input type="range" min="1" max="5" value="1" id="characterRange">
+            <input type="range" min="1" max="5" value="1" id="characterRange">
 <!-- Number box next to range slider -->                      
                         <input type="number" min="1" max="5" value="1" id="charaterNumber">
                       </div>
@@ -82,9 +85,12 @@
 
                       </form>
                     <div class="buttonContainer">
+            <input type="number" min="1" max="5" value="1" id="characterNumber">
+          </div>
 <!-- Button for submitting -->
-                      <button class="buttonCreateUsers" type="submit">Create Users</button>
-                    </div>
+          <button class="buttonCreateUsers" type="submit">Create Users</button>
+        </form>
+
         <img src="./assets/images/close.svg" class="close-button"/>
       </section>
       <section id="loremIpsumForm" class="general-form" style="display: none;">
