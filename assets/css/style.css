@@ -34,11 +34,10 @@
     color: var(--black);
 }
 
-main {
+body {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     overflow: hidden;
-    height: 800px;
 }
 
 /* Global border class for checking containers */
@@ -102,6 +101,9 @@ main {
     height: 100%;
     background-color: white;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .close-button {
