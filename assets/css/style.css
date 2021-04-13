@@ -70,6 +70,35 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.26);
 }
 
+.formTitle {
+    margin: 0px;
+    text-align: center;
+}
+
+.labelUserNumber {
+    font-weight: bold;
+}
+
+/* form styling, grid-template-columns allows the form elements to show in columns */
+.forms {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 3px;
+    column-gap: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonCreateUsers {
+    font-weight: bold;
+}
+
 .carousel-indicators li{
     height: 13px !important;
     border-radius: 50% !important;
