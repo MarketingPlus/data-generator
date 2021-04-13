@@ -22,6 +22,28 @@ $(".close-button").on("click", function() {
     $("#carouselExampleIndicators").css("display", "block")
 })
 
+/* Creating constants based on the Range slider and Number box */
+const characterRange = document.getElementById 
+("characterRange")
+const characterNumber = document.getElementById 
+("characterNumber")
+const form = document.getElementById
+("generateUser")
+/* Add event listeners for when and input occurs, calls function "syncCharacterAmount" */
+characterNumber.addEventListener('input', syncCharacterAmount);
+characterRange.addEventListener('input', syncCharacterAmount);
+form.addEventListener("submit", e => {
+    e.preventDefault()
+})
+/* Function sets the value of the slider/numberbox equal to the other */
+function syncCharacterAmount(e) {
+    const value = e.target.value
+    characterNumber.value = value
+    characterRange.value = value
+}
+/* Prevent refresh */
+
+
 
 // Lorem Ipsum API request
 var loremIpsumUrl = "https://loripsum.net/api";
