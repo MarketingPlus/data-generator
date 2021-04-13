@@ -60,7 +60,7 @@ body {
 }
 
 .carousel-section {
-    width: 75%;
+    width: 250px;
     margin: auto;
     border-radius: var(--border-radius);
     background: rgba( 255, 255, 255, 0.20 );
@@ -92,7 +92,7 @@ body {
     margin-left: auto; 
     margin-right: auto;
     height: 30%; 
-    width: 60%;
+    width: 200px;
 }
 
 .general-form {
