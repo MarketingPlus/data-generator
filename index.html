@@ -63,25 +63,23 @@
       <!-- Form syntax below -->
       <section id="userGeneratorForm" class="general-form" style="display: none;">
 <!-- Heading for forms section -->
-<h1 class="formTitle">Forms</h1>
+        <h1 class="formTitle">Forms</h1>
 <!-- Forms, sliders, switches, user inputs, etc -->
-                    <form class= "forms">
-
-                        <label class="labelUserNumber" for="labelUserNumber">Number of Users</label>
-                      <div>
+        <form id= "generateUser" class= "forms">
+          <label class="labelUserNumber" for="labelUserNumber">Number of Users</label>
+          <div>
 <!-- Range slider -->
-                        <input type="range" min="1" max="5" value="1" id="characterRange">
+            <input type="range" min="1" max="5" value="1" id="characterRange">
 <!-- Number box next to range slider -->                      
-                        <input type="number" min="1" max="5" value="1" id="charaterNumber">
-                      </div>
-                      <div>
+            <input type="number" min="1" max="5" value="1" id="characterNumber">
+          </div>
+          <div>
 <!-- Switches will go here -->
-                      </div>
-                    </form>
-                    <div class="buttonContainer">
+          </div>
 <!-- Button for submitting -->
-                      <button class="buttonCreateUsers" type="submit">Create Users</button>
-                    </div>
+          <button class="buttonCreateUsers" type="submit">Create Users</button>
+        </form>
+
         <img src="./assets/images/close.svg" class="close-button"/>
       </section>
       <section id="loremIpsumForm" class="general-form" style="display: none;">
