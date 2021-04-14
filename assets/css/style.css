@@ -219,8 +219,9 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
-    margin-left: 10%;
-    margin-right: 10%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
     margin-top: 65px;
     width: 85%;
     height: 85%;

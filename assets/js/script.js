@@ -22,50 +22,15 @@ $(".close-button").on("click", function() {
     $("#carouselExampleIndicators").css("display", "block")
 })
 
-/* Creating constants based on the Range slider and Number box */
-const rangeSlider = document.getElementById 
-("rangeSlider")
-const numberBox = document.getElementById 
-("numberBox")
-const form = document.getElementById
-("generateUser")
-const includeFirstNameElement = document.getElementById
-("input1Status")
-const includeLastNameElement = document.getElementById
-("input2Status")
-const includeEmailElement = document.getElementById
-("input3Status")
-const includeHomePhoneElement = document.getElementById
-("input4Status")
+// Creating variables based on the Range slider and Number box
+const firstName = document.getElementById("firstNameStatus")
+const lastName = document.getElementById("lastNameStatus")
+const email = document.getElementById("emailStatus")
+const phone = document.getElementById("phoneStatus")
 
-/* Add event listeners for when and input occurs, calls function "syncCharacterAmount" */
-rangeSlider.addEventListener('input', syncCharacterAmount);
-numberBox.addEventListener('input', syncCharacterAmount);
-
-form.addEventListener("submit", e => {
-    e.preventDefault()
-    const userAmount = rangeSlider.value
-    const includeFirstName = includeFirstNameElement.checked
-    const includeLastName = includeLastNameElement.checked
-    const includeEmail = includeEmailElement.checked
-    const includeHomePhone = includeHomePhoneElement.checked
-    const generatedUser = generatingUser(userAmount, includeFirstName, includeLastName, includeEmail, includeHomePhone)
-})
-
-function generatingUser(userAmount, includeFirstName, includeLastName, includeEmail, includeHomePhone) {
-
-    var a="";
-    var b="";
-    var c="";
-    var d="";
-
-    if (includeFirstName) a="First Name"
-    if (includeLastName) b="Last Name"
-    if (includeEmail) c="Email"
-    if (includeHomePhone) d="Home Phone"
-
-    prompt("Amount of Users: " + userAmount + ", " + a + ", " + b + ", " + c + ", " + d)
-}
+// Add event listeners for when and input occurs, calls function "syncCharacterAmount"
+$("#rangeSlider").on('input', syncCharacterAmount);
+$("#numberBox").on('input', syncCharacterAmount);
 
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
@@ -74,49 +39,65 @@ function syncCharacterAmount(e) {
     numberBox.value = value
 }
 
-generateBtn.addEventListener("click", generateUser);
-
-
-// Lorem Ipsum API request
-var loremIpsumUrl = "https://loripsum.net/api";
-
-$.ajax({
-    url: loremIpsumUrl,
-    method: "GET"
-}).then(function(response) {
-    console.log("Lorem Ipsum response ------")
-    console.log(response)
+$("#generateUser").on("submit", e => {
+    e.preventDefault()
+    const userAmount = rangeSlider.value
+    const incFirstName = firstName.checked
+    const incLastName = lastName.checked
+    const incEmail = email.checked
+    const incPhone = phone.checked
+    console.log("Number of users: " + userAmount);
+    console.log("First name: " + incFirstName);
+    console.log("Last name: " + incLastName);
+    console.log("Email: " + incEmail);
+    console.log("Phone: " + incPhone);
 })
 
 
-
-/* function for generating the placeholder image
-    var width = phInputWidth.value;
-    var height = phInputHeight.value;
-
-    var phImg = `https://via.placeholder.com/${width}x${height}`;
+// generateBtn.addEventListener("click", generateUser);
 
 
+
+// Lorem Ipsum API 
+// Have parameters that relate to form results
+function loremIpsumRequest () {
+    var loremIpsumUrl = "https://loripsum.net/api";
     $.ajax({
-        url: phImg,
+        url: loremIpsumUrl,
         method: "GET"
-    }).then(function(phResponse) {
-        var phImagePH = phImg.value
-        var phImageE = $(`
-
-        <img src="${phImagePH}">
-
-        `);
-    });
-*/ 
+    }).then(function(response) {
+        console.log("Lorem Ipsum Response ------")
+        console.log(response)
+    })
+}
+loremIpsumRequest();
 
 
-/* 
-var fullNameVal = $("#").val()
-var emailVal = $("#").val()
-var genderVal = $("#").val();
-var dateOfBirthVal = $("#").val();
-var phoneNumberVal = $("#").val();
-var pictureVal = $("#").val();
-*/
+
+// Picture Placeholder API
+// Pass form results into parameters
+function placeholderRequest (width, height, text) {
+    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
+    console.log(placeholderUrl);
+   
+}
+placeholderRequest(300, 300, "Hello");
+
+
+
+// Random User API
+// Have parameters that relate to form results
+function randomUserRequest () {
+    var placeholderUrl = "https://randomuser.me/api/?results=3&inc=name,gender,nat,email,cell,picture&exc=login";
+    $.ajax({
+        url: placeholderUrl,
+        method: "GET"
+    }).then(function(response) {
+        console.log("Random User Response ------")
+        console.log(response.results)
+    })
+};
+randomUserRequest();
+
+
 
