@@ -23,26 +23,58 @@ $(".close-button").on("click", function() {
 })
 
 /* Creating constants based on the Range slider and Number box */
-const characterRange = document.getElementById 
-("characterRange")
-const characterNumber = document.getElementById 
-("characterNumber")
+const rangeSlider = document.getElementById 
+("rangeSlider")
+const numberBox = document.getElementById 
+("numberBox")
 const form = document.getElementById
 ("generateUser")
+const includeFirstNameElement = document.getElementById
+("input1Status")
+const includeLastNameElement = document.getElementById
+("input2Status")
+const includeEmailElement = document.getElementById
+("input3Status")
+const includeHomePhoneElement = document.getElementById
+("input4Status")
+
 /* Add event listeners for when and input occurs, calls function "syncCharacterAmount" */
-characterNumber.addEventListener('input', syncCharacterAmount);
-characterRange.addEventListener('input', syncCharacterAmount);
+rangeSlider.addEventListener('input', syncCharacterAmount);
+numberBox.addEventListener('input', syncCharacterAmount);
+
 form.addEventListener("submit", e => {
     e.preventDefault()
+    const userAmount = rangeSlider.value
+    const includeFirstName = includeFirstNameElement.checked
+    const includeLastName = includeLastNameElement.checked
+    const includeEmail = includeEmailElement.checked
+    const includeHomePhone = includeHomePhoneElement.checked
+    const generatedUser = generatingUser(userAmount, includeFirstName, includeLastName, includeEmail, includeHomePhone)
 })
+
+function generatingUser(userAmount, includeFirstName, includeLastName, includeEmail, includeHomePhone) {
+
+    var a="";
+    var b="";
+    var c="";
+    var d="";
+
+    if (includeFirstName) a="First Name"
+    if (includeLastName) b="Last Name"
+    if (includeEmail) c="Email"
+    if (includeHomePhone) d="Home Phone"
+
+    prompt("Amount of Users: " + userAmount + ", " + a + ", " + b + ", " + c + ", " + d)
+}
+
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
     const value = e.target.value
-    characterNumber.value = value
-    characterRange.value = value
+    rangeSlider.value = value
+    numberBox.value = value
 }
-/* Prevent refresh */
 
+generateBtn.addEventListener("click", generateUser);
 
 
 // Lorem Ipsum API request

@@ -2,6 +2,7 @@
 :root {
     --general-container: 420px;
     --border-radius: 15px;
+    --rangeSliderBarHeight: 7px;
 }
 
 
@@ -98,12 +99,12 @@ body {
 }
 
 .formTitle {
-    margin: 0px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
 /* Styling for the label besides the slider */
-.labelUserNumber {
+.labelUser {
     font-family: aktiv-grotesk, sans-serif;
     font-weight: bold;
 }
@@ -113,12 +114,55 @@ body {
     font-family: aktiv-grotesk, sans-serif;
     display: grid;
     grid-template-columns: auto auto;
-    row-gap: 3px;
-    column-gap: 100px;
+    row-gap: 10%;
+    column-gap: 20%;
     justify-content: center;
     align-items: center;
 }
 
+.rangeElement {
+    align-items: center;
+    float: right;
+}
+
+/* Range slider */
+#rangeSlider {
+    -webkit-appearance: none;
+    width: 60%;
+    height: var(--rangeSliderBarHeight);
+    outline: none;
+    border-radius: 3px;
+}
+
+#rangeSlider::-webkit-slider-thumb {
+    -webkit-appearance: default-button;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+}
+
+#numberBox {
+    border-radius: 34px;
+    float: right;
+    width: 60px;
+    height: 34px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    background-color: #ccc;
+}
+
+#rangeOutput {
+    font-family: aktiv-grotesk, sans-serif;
+    grid-column: span 2;
+    border-radius: var(--border-radius);
+    padding: 10px;
+    font-weight: bold;
+    cursor: text;
+    height: 48px;
+}
 /* Styling the button using the variable for border radius for consistency */
 .buttonCreateUsers {
     font-family: aktiv-grotesk, sans-serif;
@@ -133,7 +177,7 @@ body {
 }
 
 .buttonCreateUsers:hover {
-    background-color: rgba( 255, 255, 255, 0.20 );
+    background-color: rgba( 255, 255, 255, 0.40 );
 }
 
 .carousel-indicators li{
@@ -172,11 +216,15 @@ body {
 }
 
 .general-form {
-    margin-left: 10%;
-    margin-top: 65px;
+    display: flex;
+    align-items: center;
     position: absolute;
-    width: 80%;
-    height: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 65px;
+    width: 85%;
+    height: 85%;
+
     border-radius: var(--border-radius);
     background: rgba( 255, 255, 255, 0.20 );
     backdrop-filter: blur( 3.5px );
@@ -199,6 +247,7 @@ body {
 
 /* The switch - the box around the slider */
 .switch {
+    float: right;
     position: relative;
     display: inline-block;
     width: 60px;

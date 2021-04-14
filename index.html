@@ -66,26 +66,62 @@
       </div>
       <!-- Form syntax below -->
       <section id="userGeneratorForm" class="general-form" style="display: none;">
-<!-- Heading for forms section -->
         <h1 class="formTitle">Forms</h1>
-<!-- Forms, sliders, switches, user inputs, etc -->
         <form id= "generateUser" class= "forms">
-          <label class="labelUserNumber" for="labelUserNumber">Number of Users</label>
-          <div>
 <!-- Range slider -->
-            <input type="range" min="1" max="5" value="1" id="characterRange">
-<!-- Number box next to range slider -->                      
-                        <input type="number" min="1" max="5" value="1" id="charaterNumber">
-                      </div>
-<!-- Switches-->
-                      <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                      </label>
-
-                      </form>
-                    <div class="buttonContainer">
-            <input type="number" min="1" max="5" value="1" id="characterNumber">
+          <label class="labelUser" for="labelUser">Number of Users</label>
+          <div class="rangeElement">
+            <input type="range" min="1" max="5" value="3" id="rangeSlider">               
+            <input type="number" min="1" max="5" value="3" id="numberBox">
+          </div>  
+<!-- Input 1: Name -->
+          <label class="labelUser">First Name</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="input1Status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <textarea readonly id="rangeOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea>
+<!-- Input 2: Name -->
+          <label class="labelUser">Last Name</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="input2Status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+<!-- Input 3: Email address -->
+          <label class="labelUser">Email</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="input3Status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+<!-- Input 4: Phone numbers -->
+          <label class="labelUser">Home Phone</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="input4Status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+<!-- Input 5: Adresses -->
+          <label class="labelUser">Home Address</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+<!-- Input 4: Phone numbers -->
+          <label class="labelUser">Profile Picture</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
           </div>
 <!-- Button for submitting -->
           <button class="buttonCreateUsers" type="submit">Create Users</button>
