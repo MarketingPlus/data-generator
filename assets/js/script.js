@@ -27,6 +27,7 @@ const firstName = document.getElementById("firstNameStatus")
 const lastName = document.getElementById("lastNameStatus")
 const email = document.getElementById("emailStatus")
 const phone = document.getElementById("phoneStatus")
+const picture = document.getElementById("picStatus")
 
 // Add event listeners for when and input occurs, calls function "syncCharacterAmount"
 $("#rangeSlider").on('input', syncCharacterAmount);
@@ -46,16 +47,54 @@ $("#generateUser").on("submit", e => {
     const incLastName = lastName.checked
     const incEmail = email.checked
     const incPhone = phone.checked
-    console.log("Number of users: " + userAmount);
-    console.log("First name: " + incFirstName);
-    console.log("Last name: " + incLastName);
-    console.log("Email: " + incEmail);
-    console.log("Phone: " + incPhone);
+    const incPicture = picture.checked
+    randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture)
 })
 
+// Random User API that fetches the data
+function randomUserRequest (users, first, last, email, phone, picture) {
+    var placeholderUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
+    $.ajax({
+        url: placeholderUrl,
+        method: "GET"
+    }).then(function(response) {
+        console.log("Random User Response ------")
+        var results = response.results;
+        showRandomUserData(first, last, email, phone, picture, results);
+    }) 
+};
 
-// generateBtn.addEventListener("click", generateUser);
-
+// Function that displays the results of specified random user requirements
+function showRandomUserData (first, last, email, phone, picture, results) {
+    console.log(results);
+    for(var i = 0; i < results.length; i++) {
+        if(first === true) {
+            console.log(results[i].name.first)
+        } else {
+            console.log("Does not want first name")
+        }
+        if(last === true) {
+            console.log(results[i].name.last)
+        } else {
+            console.log("Does not want last name")
+        }
+        if(email === true) {
+            console.log(results[i].email)
+        } else {
+            console.log("Does not want email")
+        }
+        if(phone === true) {
+            console.log(results[i].cell)
+        } else {
+            console.log("Does not want phone number")
+        }
+        if(picture === true) {
+            console.log(results[i].picture.large)
+        } else {
+            console.log("Does not want picture")
+        }
+    }
+}
 
 
 // Lorem Ipsum API 
@@ -78,6 +117,7 @@ loremIpsumRequest();
 // Pass form results into parameters
 function placeholderRequest (width, height, text) {
     var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
+    console.log("Placeholder Image Response ------")
     console.log(placeholderUrl);
    
 }
@@ -85,19 +125,7 @@ placeholderRequest(300, 300, "Hello");
 
 
 
-// Random User API
-// Have parameters that relate to form results
-function randomUserRequest () {
-    var placeholderUrl = "https://randomuser.me/api/?results=3&inc=name,gender,nat,email,cell,picture&exc=login";
-    $.ajax({
-        url: placeholderUrl,
-        method: "GET"
-    }).then(function(response) {
-        console.log("Random User Response ------")
-        console.log(response.results)
-    })
-};
-randomUserRequest();
+
 
 
 
