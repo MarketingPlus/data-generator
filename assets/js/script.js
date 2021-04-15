@@ -43,6 +43,16 @@ function syncCharacterAmount(e) {
     numberBox.value = value
 }
 
+// copy to clipboard
+$("#clipboard").on('click', e => {
+    // command to select the password and copy it to te clipboard
+
+    $("#copyText").select();
+    document.execCommand('copy');
+});
+
+
+// User Generator Submit
 $("#generateUser").on("submit", e => {
     e.preventDefault()
     const userAmount = rangeSlider.value
@@ -52,10 +62,25 @@ $("#generateUser").on("submit", e => {
     const incPhone = phone.checked
     const incPicture = picture.checked
     randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture);
-
     $("#userReturnSection").css("display", "block")
     $("#userGeneratorForm").css("display", "none");
 })
+
+// Lorem Ipsum Submit
+$("#generateLoremIpsum").on("submit", e => {
+    e.preventDefault()
+    loremIpsumRequest();
+    $("#loremReturnSection").css("display", "block")
+    $("#loremIpsumForm").css("display", "none");
+})
+
+// Placeholder Image Submit
+$("#generatePlaceholder").on("submit", e => {
+    e.preventDefault()
+    placeholderRequest(300, 300, "Hello");
+    $("#placeholderReturnSection").css("display", "block")
+    $("#placeholderForm").css("display", "none");
+}) 
 
 // Random User API that fetches the data
 function randomUserRequest (users, first, last, email, phone, picture) {
@@ -68,7 +93,28 @@ function randomUserRequest (users, first, last, email, phone, picture) {
         var results = response.results;
         showRandomUserData(first, last, email, phone, picture, results);
     }) 
-};
+}
+
+// Lorem Ipsum API that fetches the data
+function loremIpsumRequest () {
+    var loremIpsumUrl = "https://loripsum.net/api";
+    $.ajax({
+        url: loremIpsumUrl,
+        method: "GET"
+    }).then(function(loremResponse) {
+        console.log("Lorem Ipsum Response ------")
+        console.log(loremResponse)
+        showLoremIpsumData(loremResponse);
+    })
+}
+
+// Picture Placeholder API that fetches the data
+function placeholderRequest (width, height, text) {
+    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
+    console.log("Placeholder Image Response ------")
+    console.log(placeholderUrl);
+    showPlaceholderData(placeholderUrl);
+}
 
 // Function that displays the results of specified random user requirements
 function showRandomUserData (first, last, email, phone, picture, results) {
@@ -102,57 +148,29 @@ function showRandomUserData (first, last, email, phone, picture, results) {
     }
 }
 
-// copy to clipboard
-const clipboard = document.getElementById('clipboard')
-
-clipboard.addEventListener('click', e => {
-      // command to select the password and copy it to te clipboard
-
-      
-      $("#copyText").select();
-      document.execCommand('copy');
-
-});
-
-// Lorem Ipsum API 
-// Have parameters that relate to form results
-function loremIpsumRequest () {
-    var loremIpsumUrl = "https://loripsum.net/api";
-    $.ajax({
-        url: loremIpsumUrl,
-        method: "GET"
-    }).then(function(response) {
-        console.log("Lorem Ipsum Response ------")
-        console.log(loremResponse)
-
-        var generatedLorem = loremResponse
-        var postLorem = $(`
+// Function that displays the results of specified lorem ipsum requirements
+function showLoremIpsumData (generatedLorem) {
+    var postLorem = $(`
             <textarea readonly style="resize: none;" id="copyText">${generatedLorem}</textarea>
-            
             `);
-
         $("#loremReturn").append(postLorem)
-    })
-}
-loremIpsumRequest();
+};
 
-
-
-// Picture Placeholder API
-// Pass form results into parameters
-function placeholderRequest (width, height, text) {
-    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
-    console.log("Placeholder Image Response ------")
-    console.log(placeholderUrl);
-
+// Function that displays the results of specified placeholder requirements
+function showPlaceholderData (placeholderUrl) {
     var placeholderImg = $(`
-        <img src="${placeholderUrl}">
+        <img src="${placeholderUrl}"/>
             <a href="${placeholderUrl}" target="_blank">
                 <button id="downloadBtn" style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
             </a>
     `);
 
     $('#placeholderReturn').append(placeholderImg)
-   
 }
-placeholderRequest(300, 300, "Hello");
+
+
+
+
+
+
+
