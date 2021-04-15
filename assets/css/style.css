@@ -180,7 +180,6 @@ body {
   grid-column: span 2;
 }
 /* Styling the button using the variable for border radius for consistency */
-/* I added styling for all the buttons so far */
 .buttonCreateUsers,
 #downloadBtn,
 #loremBtn,
