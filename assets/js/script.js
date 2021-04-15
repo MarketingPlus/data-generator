@@ -51,12 +51,32 @@ $("#generateUser").on("submit", e => {
     console.log("Last name: " + incLastName);
     console.log("Email: " + incEmail);
     console.log("Phone: " + incPhone);
+
+    $("#userReturnSection").css("display", "block")
+    $("#userGeneratorForm").css("display", "none");
+
 })
 
 
 // generateBtn.addEventListener("click", generateUser);
 
+// Just Prep for the submit button on each form
 
+// For the submit button for lorem
+$("#generateLorem").on("submit", e => {
+    e.preventDefault()
+
+    $("#loremReturnSection").css("display", "block")
+    $("#loremGeneratorForm").css("display", "none");
+})
+
+// the submit button for the placeholder image
+$("#generatePlaceholder").on("submit", e => {
+    e.preventDefault()
+
+    $("#placeholderReturnSection").css("display", "block")
+    $("#placeholderGeneratorForm").css("display", "none");
+})
 
 // Lorem Ipsum API 
 // Have parameters that relate to form results
