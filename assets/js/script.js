@@ -63,11 +63,11 @@ $("#generateUser").on("submit", e => {
 // Just Prep for the submit button on each form
 
 // For the submit button for lorem
-$("#generateLorem").on("submit", e => {
+$("#generateLoremIpsum").on("submit", e => {
     e.preventDefault()
 
     $("#loremReturnSection").css("display", "block")
-    $("#loremGeneratorForm").css("display", "none");
+    $("#loremIpsumForm").css("display", "none");
 })
 
 // the submit button for the placeholder image
@@ -75,7 +75,7 @@ $("#generatePlaceholder").on("submit", e => {
     e.preventDefault()
 
     $("#placeholderReturnSection").css("display", "block")
-    $("#placeholderGeneratorForm").css("display", "none");
+    $("#placeholderForm").css("display", "none");
 })
 
 // Lorem Ipsum API 
@@ -99,7 +99,15 @@ loremIpsumRequest();
 function placeholderRequest (width, height, text) {
     var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
     console.log(placeholderUrl);
-   
+
+    var placeholderImg = $(`
+        <img src="${placeholderUrl}">
+            <a href="${placeholderUrl}" target="_blank">
+                <button style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
+            </a>
+    `);
+
+    $('#placeholderReturn').append(placeholderImg)
 }
 placeholderRequest(300, 300, "Hello");
 

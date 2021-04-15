@@ -120,29 +120,48 @@
         </form>
         <img src="./assets/images/close.svg" class="close-button"/>
       </section>
+
+
+
       <section id="loremIpsumForm" class="general-form" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-      </section>
-      <section id="placeholderForm" class="general-form" style="display: none;">
-        <img src="./assets/images/close.svg" class="close-button"/>
+
+        <form id="generateLoremIpsum" class="forms">
+          <button class="buttonCreateLoremIpsum" type="submit">Create Lorem Ipsum</button>
+        </form>
       </section>
 
+
+
+      <section id="placeholderForm" class="general-form" style="display: none;">
+        <img src="./assets/images/close.svg" class="close-button"/>
+
+        <form id="generatePlaceholder" class="forms">
+          <button class="buttonCreatePlaceholder" type="submit">Create Placeholder</button>
+        </form>
+      </section>
 
 <!-- Return Page Sections -->
 
       <!-- User Generator Return Section-->
       <section class="user-generator-return result-page" id="userReturnSection" style="display: none;">
-
+        <div class="container-user" id="userReturn"></div>
+          
+        </div>
       </section>
 
       <!-- Lorem Return Section-->
       <section class="lorem-ipsum-return result-page" id="loremReturnSection" style="display: none;">
-
+        <div class="container-lorem" id="loremReturn">
+          
+        </div>
       </section>
 
-      <!-- Placeholder Return Section-->
+      <!-- Placeholder Return Section -->
       <seciton class="placeholder-return result-page" id="placeholderReturnSection" style="display: none;">
+        <div class="container-placeholder" id="placeholderReturn">
 
+        </div>
       </seciton>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
