@@ -49,7 +49,6 @@ $("#generateUser").on("submit", e => {
     const incLastName = lastName.checked
     const incEmail = email.checked
     const incPhone = phone.checked
-<<<<<<< HEAD
     console.log("Number of users: " + userAmount);
     console.log("First name: " + incFirstName);
     console.log("Last name: " + incLastName);
@@ -59,10 +58,6 @@ $("#generateUser").on("submit", e => {
     $("#userReturnSection").css("display", "block")
     $("#userGeneratorForm").css("display", "none");
 
-=======
-    const incPicture = picture.checked
-    randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture)
->>>>>>> f064ab949a0ec15c69d3f968541ed60b579c66a3
 })
 
 // Random User API that fetches the data
@@ -78,7 +73,6 @@ function randomUserRequest (users, first, last, email, phone, picture) {
     }) 
 };
 
-<<<<<<< HEAD
 // generateBtn.addEventListener("click", generateUser);
 
 // Just Prep for the submit button on each form
@@ -94,39 +88,6 @@ $("#generateLoremIpsum").on("submit", e => {
 // the submit button for the placeholder image
 $("#generatePlaceholder").on("submit", e => {
     e.preventDefault()
-=======
-// Function that displays the results of specified random user requirements
-function showRandomUserData (first, last, email, phone, picture, results) {
-    console.log(results);
-    for(var i = 0; i < results.length; i++) {
-        if(first === true) {
-            console.log(results[i].name.first)
-        } else {
-            console.log("Does not want first name")
-        }
-        if(last === true) {
-            console.log(results[i].name.last)
-        } else {
-            console.log("Does not want last name")
-        }
-        if(email === true) {
-            console.log(results[i].email)
-        } else {
-            console.log("Does not want email")
-        }
-        if(phone === true) {
-            console.log(results[i].cell)
-        } else {
-            console.log("Does not want phone number")
-        }
-        if(picture === true) {
-            console.log(results[i].picture.large)
-        } else {
-            console.log("Does not want picture")
-        }
-    }
-}
->>>>>>> f064ab949a0ec15c69d3f968541ed60b579c66a3
 
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");

@@ -125,8 +125,51 @@
 
       <section id="loremIpsumForm" class="general-form" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-
+        <h1 class="formTitle">Lorem Ipsum</h1>
         <form id="generateLoremIpsum" class="forms">
+          <label class="labelUser" for="labelUser">Length of Paragraphs</label>
+          <input type="number" min="1" max="5" value="3" id="numberBox1">
+          <label class="labelUser" for="labelUser">Number of Paragraphs</label>
+          <label class="labelUser" for="labelUser">
+            <select>
+              <option>Short</option>
+              <option>Medyium</option>
+              <option>Lon</option>
+            </select>
+          </label>
+
+          <label class="labelUser">Do you want links</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="lastNameStatus">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <label class="labelUser">Headings</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="lastNameStatus">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <label class="labelUser">Last Name</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="lastNameStatus">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+          <label class="labelUser">Last Name</label>
+          <div>
+            <label class="switch">
+              <input type="checkbox" id="lastNameStatus">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          
           <button class="buttonCreateLoremIpsum" id="loremBtn" type="submit">Create Lorem Ipsum</button>
         </form>
       </section>
@@ -146,8 +189,13 @@
       <!-- User Generator Return Section-->
       <section class="user-generator-return result-page" id="userReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-        <div class="container-user" id="userReturn"></div>
-          
+        <h1 class="formTitle">Genereated Output</h1>
+        <div class="container-user" id="userReturn">
+          <textarea readonly class="textArea" id="nameOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea>
+          <textarea readonly class="textArea" id="nameOutput" placeholder="Last Name" araia-label="generatedLastName"></textarea>
+          <textarea readonly class="textArea" id="emailOutput" placeholder="Email" araia-label="generatedEmail"></textarea>
+          <textarea readonly class="textArea" id="phoneOutput" placeholder="Number of Phones" araia-label="generatedPhone"></textarea>
+        </div>
         </div>
       </section>
 
