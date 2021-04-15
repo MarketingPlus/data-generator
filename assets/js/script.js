@@ -1,4 +1,5 @@
 
+
 // Shows modals on click
 $("#user-generator-carousel").on("click", function() {
     $("#userGeneratorForm").css("display", "block")
@@ -167,6 +168,13 @@ function showPlaceholderData (placeholderUrl) {
 
     $('#placeholderReturn').append(placeholderImg)
 }
+
+
+
+
+
+
+
 
 
 

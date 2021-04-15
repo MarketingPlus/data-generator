@@ -161,6 +161,24 @@ body {
   cursor: text;
   height: 48px;
 }
+
+.container-user {
+  font-family: aktiv-grotesk, sans-serif;
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 10%;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.textArea {
+  resize: none;
+}
+
+#emailOutput {
+  grid-column: span 2;
+}
 /* Styling the button using the variable for border radius for consistency */
 .buttonCreateUsers,
 #downloadBtn,
