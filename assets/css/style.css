@@ -5,7 +5,6 @@
   --rangeSliderBarHeight: 7px;
 }
 
-
 /* Fonts used */
 .aktiv-grotesk-thin {
   font-family: aktiv-grotesk, sans-serif;
@@ -36,10 +35,9 @@
 }
 
 body {
-  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   overflow: hidden;
 }
-
 
 /* Global border class for checking containers */
 .border {
@@ -86,9 +84,9 @@ body {
   width: 250px;
   margin: auto;
   border-radius: var(--border-radius);
-  background: rgba( 255, 255, 255, 0.20 );
-  backdrop-filter: blur( 3.5px );
-  -webkit-backdrop-filter: blur( 3.5px );
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.26);
   transition: all 100ms ease;
 }
@@ -164,23 +162,41 @@ body {
   height: 48px;
 }
 /* Styling the button using the variable for border radius for consistency */
-.buttonCreateUsers {
+.buttonCreateUsers,
+#downloadBtn,
+#loremBtn,
+#placeholderBtn {
   font-family: aktiv-grotesk, sans-serif;
   grid-column: span 2;
   border-radius: var(--border-radius);
   padding: 10px;
-  background-color: rgba( 255, 255, 255, 0.80 );
+  background-color: rgba(255, 255, 255, 0.8);
   color: black;
   font-weight: bold;
-  border: 2px solid ;
+  border: 2px solid;
   cursor: pointer;
 }
 
-.buttonCreateUsers:hover {
-  background-color: rgba( 255, 255, 255, 0.40 );
+.copyButton {
+  border-radius: var(--border-radius);
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  font-weight: bold;
+  border: 2px solid;
+  cursor: pointer;
+  margin-top: 2vh;
 }
 
-.carousel-indicators li{
+.buttonCreateUsers:hover,
+#downloadBtn:hover,
+#clipboard:hover,
+#loremBtn:hover,
+#placeholderBtn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.carousel-indicators li {
   height: 13px !important;
   border-radius: 50% !important;
   width: 13px;
@@ -204,13 +220,13 @@ body {
 }
 
 .description {
- position: absolute;
- bottom: 0px;
- left: 0; 
-  right: 0; 
-  margin-left: auto; 
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
   margin-right: auto;
-  height: 25%; 
+  height: 25%;
   width: 200px;
   cursor: pointer;
 }
@@ -227,9 +243,9 @@ body {
   height: 85%;
 
   border-radius: var(--border-radius);
-  background: rgba( 255, 255, 255, 0.20 );
-  backdrop-filter: blur( 3.5px );
-  -webkit-backdrop-filter: blur( 3.5px );
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
   border: 1px solid rgba(255, 255, 255, 0.26);
   top: 0;
 }
@@ -271,8 +287,8 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -283,16 +299,16 @@ body {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -307,4 +323,43 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* result page */
+.result-page {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-top: 65px;
+  width: 85%;
+  height: 85%;
+
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  top: 0;
+}
+
+/* Result Page container */
+.container-placeholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.container-lorem {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }

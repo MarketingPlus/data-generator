@@ -18,7 +18,10 @@ $("#placeholder-carousel").on("click", function() {
 $(".close-button").on("click", function() {
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
-    $("#placeholderForm").css("display", "none")
+    $("#placeholderForm").css("display", "none");
+    $("#userReturnSection").css("display", "none");
+    $("#loremReturnSection").css("display", "none");
+    $("#placeholderReturnSection").css("display", "none");
     $("#carouselExampleIndicators").css("display", "block")
 })
 
@@ -48,7 +51,10 @@ $("#generateUser").on("submit", e => {
     const incEmail = email.checked
     const incPhone = phone.checked
     const incPicture = picture.checked
-    randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture)
+    randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture);
+
+    $("#userReturnSection").css("display", "block")
+    $("#userGeneratorForm").css("display", "none");
 })
 
 // Random User API that fetches the data
@@ -96,6 +102,17 @@ function showRandomUserData (first, last, email, phone, picture, results) {
     }
 }
 
+// copy to clipboard
+const clipboard = document.getElementById('clipboard')
+
+clipboard.addEventListener('click', e => {
+      // command to select the password and copy it to te clipboard
+
+      
+      $("#copyText").select();
+      document.execCommand('copy');
+
+});
 
 // Lorem Ipsum API 
 // Have parameters that relate to form results
@@ -106,7 +123,15 @@ function loremIpsumRequest () {
         method: "GET"
     }).then(function(response) {
         console.log("Lorem Ipsum Response ------")
-        console.log(response)
+        console.log(loremResponse)
+
+        var generatedLorem = loremResponse
+        var postLorem = $(`
+            <textarea readonly style="resize: none;" id="copyText">${generatedLorem}</textarea>
+            
+            `);
+
+        $("#loremReturn").append(postLorem)
     })
 }
 loremIpsumRequest();
@@ -119,6 +144,15 @@ function placeholderRequest (width, height, text) {
     var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
     console.log("Placeholder Image Response ------")
     console.log(placeholderUrl);
+
+    var placeholderImg = $(`
+        <img src="${placeholderUrl}">
+            <a href="${placeholderUrl}" target="_blank">
+                <button id="downloadBtn" style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
+            </a>
+    `);
+
+    $('#placeholderReturn').append(placeholderImg)
    
 }
 placeholderRequest(300, 300, "Hello");
