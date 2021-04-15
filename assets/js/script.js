@@ -1,4 +1,3 @@
-
 // Shows modals on click
 $("#user-generator-carousel").on("click", function() {
     $("#userGeneratorForm").css("display", "block")
@@ -18,7 +17,10 @@ $("#placeholder-carousel").on("click", function() {
 $(".close-button").on("click", function() {
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
-    $("#placeholderForm").css("display", "none")
+    $("#placeholderForm").css("display", "none");
+    $("#userReturnSection").css("display", "none");
+    $("#loremReturnSection").css("display", "none");
+    $("#placeholderReturnSection").css("display", "none");
     $("#carouselExampleIndicators").css("display", "block")
 })
 
@@ -79,20 +81,43 @@ $("#generatePlaceholder").on("submit", e => {
 })
 
 // Lorem Ipsum API 
+
+
+
 // Have parameters that relate to form results
 function loremIpsumRequest () {
     var loremIpsumUrl = "https://loripsum.net/api";
     $.ajax({
         url: loremIpsumUrl,
         method: "GET"
-    }).then(function(response) {
+    }).then(function(loremResponse) {
         console.log("Lorem Ipsum Response ------")
-        console.log(response)
+        console.log(loremResponse)
+
+        var generatedLorem = loremResponse
+        var postLorem = $(`
+            <textarea readonly style="resize: none;" id="copyText">${generatedLorem}</textarea>
+            
+            `);
+
+        $("#loremReturn").append(postLorem)
     })
+
+    
 }
 loremIpsumRequest();
 
+// copy to clipboard
+const clipboard = document.getElementById('clipboard')
 
+clipboard.addEventListener('click', e => {
+      // command to select the password and copy it to te clipboard
+
+      
+      $("#copyText").select();
+      document.execCommand('copy');
+
+});
 
 // Picture Placeholder API
 // Pass form results into parameters
@@ -103,7 +128,7 @@ function placeholderRequest (width, height, text) {
     var placeholderImg = $(`
         <img src="${placeholderUrl}">
             <a href="${placeholderUrl}" target="_blank">
-                <button style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
+                <button id="downloadBtn" style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
             </a>
     `);
 

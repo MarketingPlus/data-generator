@@ -127,7 +127,7 @@
         <img src="./assets/images/close.svg" class="close-button"/>
 
         <form id="generateLoremIpsum" class="forms">
-          <button class="buttonCreateLoremIpsum" type="submit">Create Lorem Ipsum</button>
+          <button class="buttonCreateLoremIpsum" id="loremBtn" type="submit">Create Lorem Ipsum</button>
         </form>
       </section>
 
@@ -137,7 +137,7 @@
         <img src="./assets/images/close.svg" class="close-button"/>
 
         <form id="generatePlaceholder" class="forms">
-          <button class="buttonCreatePlaceholder" type="submit">Create Placeholder</button>
+          <button class="buttonCreatePlaceholder" id="placeholderBtn" type="submit">Create Placeholder</button>
         </form>
       </section>
 
@@ -145,6 +145,7 @@
 
       <!-- User Generator Return Section-->
       <section class="user-generator-return result-page" id="userReturnSection" style="display: none;">
+        <img src="./assets/images/close.svg" class="close-button"/>
         <div class="container-user" id="userReturn"></div>
           
         </div>
@@ -152,13 +153,19 @@
 
       <!-- Lorem Return Section-->
       <section class="lorem-ipsum-return result-page" id="loremReturnSection" style="display: none;">
-        <div class="container-lorem" id="loremReturn">
-          
+        <img src="./assets/images/close.svg" class="close-button"/>
+        <div class="container-lorem">
+          <div id="loremReturn">
+          </div>
+            <div class="copyButton">
+              <i class='fa fa-clipboard' id="clipboard"></i>
+            </div>
         </div>
       </section>
 
       <!-- Placeholder Return Section -->
       <seciton class="placeholder-return result-page" id="placeholderReturnSection" style="display: none;">
+        <img src="./assets/images/close.svg" class="close-button"/>
         <div class="container-placeholder" id="placeholderReturn">
 
         </div>
