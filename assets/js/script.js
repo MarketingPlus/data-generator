@@ -25,15 +25,19 @@ $(".close-button").on("click", function() {
     $("#userReturnSection").css("display", "none");
     $("#loremReturnSection").css("display", "none");
     $("#placeholderReturnSection").css("display", "none");
-    $("#carouselExampleIndicators").css("display", "block")
+    $("#carouselExampleIndicators").css("display", "block");
 })
 
 // Creating variables based on the Range slider and Number box
-const firstName = document.getElementById("firstNameStatus")
-const lastName = document.getElementById("lastNameStatus")
-const email = document.getElementById("emailStatus")
-const phone = document.getElementById("phoneStatus")
-const picture = document.getElementById("picStatus")
+const firstName = document.getElementById("firstNameStatus");
+const lastName = document.getElementById("lastNameStatus");
+const email = document.getElementById("emailStatus");
+const phone = document.getElementById("phoneStatus");
+const picture = document.getElementById("picStatus");
+const links = document.getElementById("links");
+const headings = document.getElementById("headings");
+const decorate = document.getElementById("decorate");
+const prude = document.getElementById("prude");
 
 // Add event listeners for when and input occurs, calls function "syncCharacterAmount"
 $("#rangeSlider").on('input', syncCharacterAmount);
@@ -77,8 +81,14 @@ $("#generateUser").on("submit", e => {
 
 // Lorem Ipsum Submit
 $("#generateLoremIpsum").on("submit", e => {
-    e.preventDefault()
-    loremIpsumRequest();
+    e.preventDefault();
+    const paragraphLength = $(".paraLength").val();
+    const typeOfParagraph = $(".paragraphType").val();
+    const linksCheck = links.checked;
+    const headingCheck = headings.checked;
+    const decorateCheck = decorate.checked;
+    const prudeCheck = prude.checked;
+    loremIpsumRequest(paragraphLength, typeOfParagraph, linksCheck, headingCheck, decorateCheck, prudeCheck);
     $("#loremReturnSection").css("display", "block")
     $("#loremIpsumForm").css("display", "none");
 })
@@ -93,9 +103,9 @@ $("#generatePlaceholder").on("submit", e => {
 
 // Random User API that fetches the data
 function randomUserRequest (users, first, last, email, phone, picture) {
-    var placeholderUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
+    var randomUserUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
     $.ajax({
-        url: placeholderUrl,
+        url: randomUserUrl,
         method: "GET"
     }).then(function(response) {
         var results = response.results;
@@ -107,8 +117,21 @@ function randomUserRequest (users, first, last, email, phone, picture) {
 }
 
 // Lorem Ipsum API that fetches the data
-function loremIpsumRequest () {
-    var loremIpsumUrl = "https://loripsum.net/api";
+function loremIpsumRequest (paragraphLength, paragraphType, links, headings, decorate, prude) {
+    var loremIpsumUrl = "https://loripsum.net/api/" + paragraphLength + "/" + paragraphType;
+    if (links === true) {
+        loremIpsumUrl = loremIpsumUrl + "/link"
+    }
+    if (headings === true) {
+        loremIpsumUrl = loremIpsumUrl + "/headers"
+    }
+    if (decorate === true) {
+        loremIpsumUrl = loremIpsumUrl + "/decorate"
+    }
+    if (prude === true) {
+        loremIpsumUrl = loremIpsumUrl + "/prude"
+    }
+    console.log(loremIpsumUrl)
     $.ajax({
         url: loremIpsumUrl,
         method: "GET"
