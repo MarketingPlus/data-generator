@@ -17,6 +17,8 @@ $("#placeholder-carousel").on("click", function() {
 })
 
 $(".close-button").on("click", function() {
+    $(".result-page").css("height", "100%");
+    $(".profiles").text(" ")
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
     $("#placeholderForm").css("display", "none");
@@ -62,9 +64,15 @@ $("#generateUser").on("submit", e => {
     const incEmail = email.checked
     const incPhone = phone.checked
     const incPicture = picture.checked
-    randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture);
-    $("#userReturnSection").css("display", "block")
-    $("#userGeneratorForm").css("display", "none");
+    if(incFirstName === false && incLastName === false && incEmail === false && incPhone === false && incPicture === false) {
+        $("#userGeneratorForm").css("display", "none");
+        $("#carouselExampleIndicators").css("display", "block")
+    } else {
+        randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture);
+        $("body").css("border", "none")
+        $("#userReturnSection").css("display", "block")
+        $("#userGeneratorForm").css("display", "none");
+    }
 })
 
 // Lorem Ipsum Submit
@@ -90,8 +98,10 @@ function randomUserRequest (users, first, last, email, phone, picture) {
         url: placeholderUrl,
         method: "GET"
     }).then(function(response) {
-        console.log("Random User Response ------")
         var results = response.results;
+        if(users > 1) {
+            $(".result-page").css("height", "auto");
+        }
         showRandomUserData(first, last, email, phone, picture, results);
     }) 
 }
@@ -119,32 +129,37 @@ function placeholderRequest (width, height, text) {
 
 // Function that displays the results of specified random user requirements
 function showRandomUserData (first, last, email, phone, picture, results) {
-    console.log(results);
     for(var i = 0; i < results.length; i++) {
+        var userContainerHtml = $(`<div class="container-user${i} container-user" id="userReturn">
+        <section class="profile-picture-container${i} profile-picture-container">
+          <img class="pro-pic${i} pro-pic"/>
+        </section>
+        <section class="profile-details${i} profile-details">
+          <p class="text-area aktiv-grotesk-bold name-text${i} name-text"></p>
+          <p class="text-area email-text${i} email-text"></p>
+          <p class="text-area phone-text${i} phone-text"></p>
+        </section>
+      </div>`)
+      $(".profiles").append(userContainerHtml);
         if(first === true) {
-            console.log(results[i].name.first)
-        } else {
-            console.log("Does not want first name")
+            var firstName = results[i].name.first
+            $(".name-text" + i).append(firstName)
         }
         if(last === true) {
-            console.log(results[i].name.last)
-        } else {
-            console.log("Does not want last name")
+            var lastName = results[i].name.last
+            $(".name-text" + i).append(" " + lastName)
         }
         if(email === true) {
-            console.log(results[i].email)
-        } else {
-            console.log("Does not want email")
+            var emailRes = results[i].email
+            $(".email-text" + i).append(emailRes)
         }
         if(phone === true) {
-            console.log(results[i].cell)
-        } else {
-            console.log("Does not want phone number")
+            var phoneRes = results[i].cell
+            $(".phone-text" + i).append(phoneRes)
         }
         if(picture === true) {
-            console.log(results[i].picture.large)
-        } else {
-            console.log("Does not want picture")
+            var picRes = results[i].picture.large
+            $(".pro-pic" + i).attr('src', picRes)
         }
     }
 }
