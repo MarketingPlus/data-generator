@@ -183,17 +183,3 @@ function showPlaceholderData (placeholderUrl) {
 
     $('#placeholderReturn').append(placeholderImg)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
