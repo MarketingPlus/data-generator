@@ -127,20 +127,20 @@
         <h1 class="formTitle">Lorem Ipsum</h1>
         <form id="generateLoremIpsum" class="forms">
           <label class="labelUser" for="labelUser">Length of Paragraphs</label>
-          <input type="number" min="1" max="5" value="3" id="numberBox1">
-          <label class="labelUser" for="labelUser">Number of Paragraphs</label>
+          <input type="number" min="1" max="5" value="3" id="numberBox1" class="paraLength">
+          <label class="labelUser" for="labelUser">Type of Paragraphs</label>
           <label class="labelUser" for="labelUser">
-            <select>
-              <option>Short</option>
-              <option>Medyium</option>
-              <option>Lon</option>
+            <select class="paragraphType">
+              <option value="short">Short</option>
+              <option value="medium">Medium</option>
+              <option value="long">Long</option>
             </select>
           </label>
 
-          <label class="labelUser">Do you want links</label>
+          <label class="labelUser">Links</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="links">
               <span class="slider round"></span>
             </label>
           </div>
@@ -148,23 +148,23 @@
           <label class="labelUser">Headings</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="headings">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Last Name</label>
+          <label class="labelUser">Decorate</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="decorate">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Last Name</label>
+          <label class="labelUser">Prude</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="prude">
               <span class="slider round"></span>
             </label>
           </div>
@@ -188,25 +188,21 @@
       <!-- User Generator Return Section-->
       <section class="user-generator-return result-page" id="userReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-        <h1 class="formTitle">Genereated Output</h1>
-        <div class="container-user" id="userReturn">
-          <textarea readonly class="textArea" id="nameOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea>
-          <textarea readonly class="textArea" id="nameOutput" placeholder="Last Name" araia-label="generatedLastName"></textarea>
-          <textarea readonly class="textArea" id="emailOutput" placeholder="Email" araia-label="generatedEmail"></textarea>
-          <textarea readonly class="textArea" id="phoneOutput" placeholder="Number of Phones" araia-label="generatedPhone"></textarea>
-        </div>
-        </div>
+        <p class="user-header aktiv-grotesk-bold">Generated Users</p>
+        <section class="profiles">
+
+        </section>
       </section>
 
       <!-- Lorem Return Section-->
       <section class="lorem-ipsum-return result-page" id="loremReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-        <div class="container-lorem">
-          <div id="loremReturn">
-          </div>
-            <div class="copyButton">
-              <i class='fa fa-clipboard' id="clipboard"></i>
-            </div>
+        <p class="user-header aktiv-grotesk-bold">Lorem Ipsum</p>
+        <div class="container-lorem aktiv-grotesk-regular">
+          <section id="loremReturn">
+            <div class="loremText"></div>
+          </section>
+          <button class="copy-button">COPY</button>
         </div>
       </section>
 
