@@ -30,6 +30,7 @@ $(".close-button").on("click", function() {
     $("#carouselExampleIndicators").css("display", "block");
 })
 
+
 // Creating variables based on the Range slider and Number box
 const firstName = document.getElementById("firstNameStatus");
 const lastName = document.getElementById("lastNameStatus");
@@ -190,8 +191,16 @@ function showRandomUserData (first, last, email, phone, picture, results) {
 
 // Function that displays the results of specified lorem ipsum requirements
 function showLoremIpsumData (generatedLorem) {
-    // Styling + error test
         $(".loremText").append(generatedLorem)
+        // Runs the copy button functionality
+        $(".copy-button").on("click", copyToClipboard(".loremText"))
+        function copyToClipboard (element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+        };
 };
 
 // Function that displays the results of specified placeholder requirements
