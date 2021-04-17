@@ -31,7 +31,7 @@ $(".close-button").on("click", function() {
 })
 
 
-// Creating variables based on the Range slider and Number box
+// Creating variables based on the input box
 const firstName = document.getElementById("firstNameStatus");
 const lastName = document.getElementById("lastNameStatus");
 const email = document.getElementById("emailStatus");
@@ -50,7 +50,6 @@ $("#numberBox2").on('input', syncCharacterAmount2);
 $("#rangeSlider3").on('input', syncCharacterAmount3);
 $("#numberBox3").on('input', syncCharacterAmount3);
 
-
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
     const value = e.target.value
@@ -59,15 +58,15 @@ function syncCharacterAmount(e) {
 }
 
 function syncCharacterAmount2(e) {
-    const value2 = e.target.value
-    rangeSlider2.value = value2
-    numberBox2.value = value2
+    const value = e.target.value 
+    rangeSlider2.value = value 
+    numberBox2.value = value
 }
 
 function syncCharacterAmount3(e) {
-    const value3 = e.target.value
-    rangeSlider3.value = value3
-    numberBox3.value = value3
+    const value = e.target.value 
+    rangeSlider3.value = value 
+    numberBox3.value = value
 }
 
 // copy to clipboard
@@ -115,8 +114,12 @@ $("#generateLoremIpsum").on("submit", e => {
 
 // Placeholder Image Submit
 $("#generatePlaceholder").on("submit", e => {
-    e.preventDefault()
-    placeholderRequest(300, 300, "Hello");
+    e.preventDefault();
+    const height = numberBox2.value;
+    const width = numberBox3.value;
+    const caption = Caption.value;
+
+    placeholderRequest(height, width, caption);
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");
 }) 
@@ -162,8 +165,8 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
 }
 
 // Picture Placeholder API that fetches the data
-function placeholderRequest (width, height, text) {
-    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
+function placeholderRequest (height, width, caption) {
+    var placeholderUrl = "http://via.placeholder.com/"+ height + "x" + width + "?text=" + caption;
     console.log("Placeholder Image Response ------")
     console.log(placeholderUrl);
     showPlaceholderData(placeholderUrl);
