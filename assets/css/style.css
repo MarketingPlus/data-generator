@@ -382,6 +382,15 @@ input:checked + .slider:before {
   padding-bottom: 150px;
 }
 
+.loremText {
+  font-size: 13px;
+  width: 85%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(245, 245, 245, 0.678);
+}
+
 /* Result Page container */
 .container-placeholder {
   height: 100%;

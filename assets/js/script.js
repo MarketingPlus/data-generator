@@ -19,6 +19,8 @@ $("#placeholder-carousel").on("click", function() {
 $(".close-button").on("click", function() {
     $(".result-page").css("height", "100%");
     $(".profiles").text(" ")
+    $(".loremText").text(" ")
+    $("body").css({"background-image": "linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%)", "background-color": "none"})
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
     $("#placeholderForm").css("display", "none");
@@ -131,13 +133,12 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
     if (prude === true) {
         loremIpsumUrl = loremIpsumUrl + "/prude"
     }
-    console.log(loremIpsumUrl)
     $.ajax({
         url: loremIpsumUrl,
         method: "GET"
     }).then(function(loremResponse) {
-        console.log("Lorem Ipsum Response ------")
-        console.log(loremResponse)
+        $(".result-page").css("height", "auto");
+        $("body").css({"background-image": "none", "background-color": "white"})
         showLoremIpsumData(loremResponse);
     })
 }
@@ -189,10 +190,8 @@ function showRandomUserData (first, last, email, phone, picture, results) {
 
 // Function that displays the results of specified lorem ipsum requirements
 function showLoremIpsumData (generatedLorem) {
-    var postLorem = $(`
-            <textarea readonly style="resize: none;" id="copyText">${generatedLorem}</textarea>
-            `);
-        $("#loremReturn").append(postLorem)
+    // Styling + error test
+        $(".loremText").append(generatedLorem)
 };
 
 // Function that displays the results of specified placeholder requirements
