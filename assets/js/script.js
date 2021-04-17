@@ -41,14 +41,14 @@ const links = document.getElementById("links");
 const headings = document.getElementById("headings");
 const decorate = document.getElementById("decorate");
 const prude = document.getElementById("prude");
-const height = document.getElementById("height");
-const width = document.getElementById("width");
 
 // Add event listeners for when and input occurs, calls function "syncCharacterAmount"
 $("#rangeSlider").on('input', syncCharacterAmount);
 $("#numberBox").on('input', syncCharacterAmount);
 $("#rangeSlider2").on('input', syncCharacterAmount2);
+$("#numberBox2").on('input', syncCharacterAmount2);
 $("#rangeSlider3").on('input', syncCharacterAmount3);
+$("#numberBox3").on('input', syncCharacterAmount3);
 
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
@@ -115,9 +115,9 @@ $("#generateLoremIpsum").on("submit", e => {
 // Placeholder Image Submit
 $("#generatePlaceholder").on("submit", e => {
     e.preventDefault();
-    const height = $("#rangeSlider.value2").val();
-    const width = $("#rangeSlider.value3").val();
-    const caption = $("#caption").val();
+    const height = numberBox2.value;
+    const width = numberBox3.value;
+    const caption = Caption.value;
 
     placeholderRequest(height, width, caption);
     $("#placeholderReturnSection").css("display", "block")
@@ -166,7 +166,7 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
 
 // Picture Placeholder API that fetches the data
 function placeholderRequest (height, width, caption) {
-    var placeholderUrl = "https://www.fillmurray.com/640/360"+ height + "x" + width + "y" + "?text=" + caption;
+    var placeholderUrl = "http://via.placeholder.com/"+ height + "x" + width + "?text=" + caption;
     console.log("Placeholder Image Response ------")
     console.log(placeholderUrl);
     showPlaceholderData(placeholderUrl);
