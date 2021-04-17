@@ -179,6 +179,24 @@
         <img src="./assets/images/close.svg" class="close-button"/>
 
         <form id="generatePlaceholder" class="forms">
+
+        <label class="labelWidth" for="labelWidth">Width of Placeholder</label>
+          <div class="rangeElement">
+            <input type="range" min="1" max="500" value="1" id="rangeSlider2"/>               
+            <input type="number" min="1" max="500" value="1" id="numberBox2"/>
+          </div> 
+
+        <label class="labelHeight" for="labelHeight">Height of Placeholder</label>
+          <div class="rangeElement">
+            <input type="range" min="1" max="500" value="1" id="rangeSlider3"/>               
+            <input type="number" min="1" max="500" value="1" id="numberBox3"/>
+          </div> 
+
+        <label for="Caption">Caption for Placeholder Image</label><br>
+          <div> 
+            <input type="text" id="Caption" name="Caption"/><br>
+          </div>
+
           <button class="buttonCreatePlaceholder" id="placeholderBtn" type="submit">Create Placeholder</button>
         </form>
       </section>

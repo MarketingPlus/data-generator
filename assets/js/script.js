@@ -45,12 +45,29 @@ const prude = document.getElementById("prude");
 // Add event listeners for when and input occurs, calls function "syncCharacterAmount"
 $("#rangeSlider").on('input', syncCharacterAmount);
 $("#numberBox").on('input', syncCharacterAmount);
+$("#rangeSlider2").on('input', syncCharacterAmount2);
+$("#numberBox2").on('input', syncCharacterAmount2);
+$("#rangeSlider3").on('input', syncCharacterAmount3);
+$("#numberBox3").on('input', syncCharacterAmount3);
+
 
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
     const value = e.target.value
     rangeSlider.value = value
     numberBox.value = value
+}
+
+function syncCharacterAmount2(e) {
+    const value2 = e.target.value
+    rangeSlider2.value = value2
+    numberBox2.value = value2
+}
+
+function syncCharacterAmount3(e) {
+    const value3 = e.target.value
+    rangeSlider3.value = value3
+    numberBox3.value = value3
 }
 
 // copy to clipboard
