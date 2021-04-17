@@ -31,7 +31,7 @@ $(".close-button").on("click", function() {
 })
 
 
-// Creating variables based on the Range slider and Number box
+// Creating variables based on the input box
 const firstName = document.getElementById("firstNameStatus");
 const lastName = document.getElementById("lastNameStatus");
 const email = document.getElementById("emailStatus");
@@ -41,15 +41,14 @@ const links = document.getElementById("links");
 const headings = document.getElementById("headings");
 const decorate = document.getElementById("decorate");
 const prude = document.getElementById("prude");
+const height = document.getElementById("height");
+const width = document.getElementById("width");
 
 // Add event listeners for when and input occurs, calls function "syncCharacterAmount"
 $("#rangeSlider").on('input', syncCharacterAmount);
 $("#numberBox").on('input', syncCharacterAmount);
 $("#rangeSlider2").on('input', syncCharacterAmount2);
-$("#numberBox2").on('input', syncCharacterAmount2);
 $("#rangeSlider3").on('input', syncCharacterAmount3);
-$("#numberBox3").on('input', syncCharacterAmount3);
-
 
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
@@ -59,15 +58,15 @@ function syncCharacterAmount(e) {
 }
 
 function syncCharacterAmount2(e) {
-    const value2 = e.target.value
-    rangeSlider2.value = value2
-    numberBox2.value = value2
+    const value = e.target.value 
+    rangeSlider2.value = value 
+    numberBox2.value = value
 }
 
 function syncCharacterAmount3(e) {
-    const value3 = e.target.value
-    rangeSlider3.value = value3
-    numberBox3.value = value3
+    const value = e.target.value 
+    rangeSlider3.value = value 
+    numberBox3.value = value
 }
 
 // copy to clipboard
@@ -115,8 +114,12 @@ $("#generateLoremIpsum").on("submit", e => {
 
 // Placeholder Image Submit
 $("#generatePlaceholder").on("submit", e => {
-    e.preventDefault()
-    placeholderRequest(300, 300, "Hello");
+    e.preventDefault();
+    const height = $("#rangeSlider.value2").val();
+    const width = $("#rangeSlider.value3").val();
+    const caption = $("#caption").val();
+
+    placeholderRequest(height, width, caption);
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");
 }) 
@@ -162,8 +165,8 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
 }
 
 // Picture Placeholder API that fetches the data
-function placeholderRequest (width, height, text) {
-    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
+function placeholderRequest (height, width, caption) {
+    var placeholderUrl = "https://www.fillmurray.com/640/360"+ height + "x" + width + "y" + "?text=" + caption;
     console.log("Placeholder Image Response ------")
     console.log(placeholderUrl);
     showPlaceholderData(placeholderUrl);

@@ -119,6 +119,13 @@ body {
   align-items: center;
 }
 
+.caption {
+  width: 200px;
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .rangeElement {
   align-items: center;
   float: right;
