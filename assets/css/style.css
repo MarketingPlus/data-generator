@@ -67,6 +67,12 @@ body {
   line-height: 1.2rem;
 }
 
+.Caption {
+  float: right;
+  display: flex; 
+  justify-content: flex-end;
+}
+
 /* The overall container for each app selection */
 .overall-container {
   margin: 140px auto;

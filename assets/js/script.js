@@ -116,7 +116,10 @@ $("#generateLoremIpsum").on("submit", e => {
 // Placeholder Image Submit
 $("#generatePlaceholder").on("submit", e => {
     e.preventDefault()
-    placeholderRequest(300, 300, "Hello");
+    const width = numberBox2.value;
+    const height = numberBox3.value;
+    const caption = Caption.value; 
+    placeholderRequest(width, height, caption);
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");
 }) 
