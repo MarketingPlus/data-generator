@@ -18,9 +18,10 @@ $("#placeholder-carousel").on("click", function() {
 
 $(".close-button").on("click", function() {
     $(".result-page").css("height", "100%");
-    $(".profiles").text(" ")
-    $(".loremText").text(" ")
-    $("body").css({"background-image": "linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%)", "background-color": "none"})
+    $(".profiles").text(" ");
+    $(".loremText").text(" ");
+    $("#placeholderReturn").text("");
+    $("body").css({"background-image": "linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%)", "background-color": "none", "border": "1px solid white"})
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
     $("#placeholderForm").css("display", "none");
@@ -31,7 +32,7 @@ $(".close-button").on("click", function() {
 })
 
 
-// Creating variables based on the Range slider and Number box
+// Creating variables based on the input box
 const firstName = document.getElementById("firstNameStatus");
 const lastName = document.getElementById("lastNameStatus");
 const email = document.getElementById("emailStatus");
@@ -50,7 +51,6 @@ $("#numberBox2").on('input', syncCharacterAmount2);
 $("#rangeSlider3").on('input', syncCharacterAmount3);
 $("#numberBox3").on('input', syncCharacterAmount3);
 
-
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
     const value = e.target.value
@@ -59,15 +59,15 @@ function syncCharacterAmount(e) {
 }
 
 function syncCharacterAmount2(e) {
-    const value2 = e.target.value
-    rangeSlider2.value = value2
-    numberBox2.value = value2
+    const value = e.target.value 
+    rangeSlider2.value = value 
+    numberBox2.value = value
 }
 
 function syncCharacterAmount3(e) {
-    const value3 = e.target.value
-    rangeSlider3.value = value3
-    numberBox3.value = value3
+    const value = e.target.value 
+    rangeSlider3.value = value 
+    numberBox3.value = value
 }
 
 // copy to clipboard
@@ -115,29 +115,14 @@ $("#generateLoremIpsum").on("submit", e => {
 
 // Placeholder Image Submit
 $("#generatePlaceholder").on("submit", e => {
-    e.preventDefault()
-    const width = numberBox2.value;
-    const height = numberBox3.value;
-    const caption = Caption.value; 
-    placeholderRequest(width, height, caption);
+    e.preventDefault();
+    const height = numberBox2.value;
+    const width = numberBox3.value;
+    const caption = Caption.value;
+    placeholderRequest(height, width, caption);
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");
 }) 
-
-// Random User API that fetches the data
-function randomUserRequest (users, first, last, email, phone, picture) {
-    var randomUserUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
-    $.ajax({
-        url: randomUserUrl,
-        method: "GET"
-    }).then(function(response) {
-        var results = response.results;
-        if(users > 1) {
-            $(".result-page").css("height", "auto");
-        }
-        showRandomUserData(first, last, email, phone, picture, results);
-    }) 
-}
 
 // Lorem Ipsum API that fetches the data
 function loremIpsumRequest (paragraphLength, paragraphType, links, headings, decorate, prude) {
@@ -160,16 +145,66 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
     }).then(function(loremResponse) {
         $(".result-page").css("height", "auto");
         $("body").css({"background-image": "none", "background-color": "white"})
-        showLoremIpsumData(loremResponse);
+        var storedLorem = localStorage.getItem("loremData");
+        saveLorem(loremResponse);
+        unsaveLorem();
+        if(storedLorem) {
+            $(".loremText").append(storedLorem);
+            $("#save-lorem").css("display", "none")
+            $("#unsave-lorem").css("display", "block")
+            copySequence();
+        } else {
+            $(".loremText").append(loremResponse)
+            $("#save-lorem").css("display", "block")
+            $("#unsave-lorem").css("display", "none")
+            copySequence();
+        }
     })
 }
 
-// Picture Placeholder API that fetches the data
-function placeholderRequest (width, height, text) {
-    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
-    console.log("Placeholder Image Response ------")
-    console.log(placeholderUrl);
-    showPlaceholderData(placeholderUrl);
+function copySequence () {
+    $("#copy-button").on("click", copyToClipboard(".loremText"))
+        function copyToClipboard (element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+        };
+}
+
+// Function that pushes data to local storage
+function saveLorem (loremUrl) {
+    $("#save-lorem").on("click", function() {
+        localStorage.setItem("loremData", loremUrl)
+        $("#save-lorem").css("display", "none")
+        $("#unsave-lorem").css("display", "block")
+    })
+}
+
+function unsaveLorem () {
+    var empty;
+    $("#unsave-lorem").on("click", function() {
+        localStorage.removeItem("loremData")
+        $("#unsave-lorem").css("display", "none")
+        $("#save-lorem").css("display", "block")
+    })
+}
+
+
+// Random User API that fetches the data
+function randomUserRequest (users, first, last, email, phone, picture) {
+    var randomUserUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
+    $.ajax({
+        url: randomUserUrl,
+        method: "GET"
+    }).then(function(response) {
+        var results = response.results;
+        if(users > 1) {
+            $(".result-page").css("height", "auto");
+        }
+        showRandomUserData(first, last, email, phone, picture, results);
+    }) 
 }
 
 // Function that displays the results of specified random user requirements
@@ -209,26 +244,19 @@ function showRandomUserData (first, last, email, phone, picture, results) {
     }
 }
 
-// Function that displays the results of specified lorem ipsum requirements
-function showLoremIpsumData (generatedLorem) {
-        $(".loremText").append(generatedLorem)
-        // Runs the copy button functionality
-        $(".copy-button").on("click", copyToClipboard(".loremText"))
-        function copyToClipboard (element) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
-            document.execCommand("copy");
-            $temp.remove();
-        };
-};
+// Picture Placeholder API that fetches the data
+function placeholderRequest (height, width, caption) {
+    var placeholderUrl = "http://via.placeholder.com/"+ height + "x" + width + "?text=" + caption;
+    showPlaceholderData(placeholderUrl);
+}
+
 
 // Function that displays the results of specified placeholder requirements
 function showPlaceholderData (placeholderUrl) {
     var placeholderImg = $(`
         <img src="${placeholderUrl}"/>
             <a href="${placeholderUrl}" target="_blank">
-                <button id="downloadBtn" style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
+                <button style="margin-top: 2vh" class="btn button-design" id="save-picture"><i class="fa fa-download"></i> DOWNLOAD</button>
             </a>
     `);
 

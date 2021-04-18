@@ -64,18 +64,21 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <!-- Form syntax below -->
+
+<!-- Input User generator -->
+
       <section id="userGeneratorForm" class="general-form" style="display: none;">
-        <h1 class="formTitle">Forms</h1>
+        <h1 class="formTitle">User Specifications</h1>
         <form id= "generateUser" class= "forms">
 <!-- Range slider -->
-          <label class="labelUser" for="labelUser">Number of Users</label>
-          <div class="rangeElement">
-            <input type="range" min="1" max="5" value="3" id="rangeSlider">               
-            <input type="number" min="1" max="5" value="3" id="numberBox">
-          </div>  
+          <div class="formGridThree">
+            <label class="labelStyle" for="labelUser">Number of Users</label>
+              <input class= rangeSlider type="range" min="1" max="5" value="3" id="rangeSlider">               
+              <input class= numberBox type="number" min="1" max="5" value="3" id="numberBox">
+          </div>
+      
 <!-- Input 1: Name -->
-          <label class="labelUser">First Name</label>
+          <label class="labelStyle">First Name</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="firstNameStatus">
@@ -84,7 +87,7 @@
           </div>
           <!-- <textarea readonly id="rangeOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea> -->
 <!-- Input 2: Name -->
-          <label class="labelUser">Last Name</label>
+          <label class="labelStyle">Last Name</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="lastNameStatus">
@@ -92,7 +95,7 @@
             </label>
           </div>
 <!-- Input 3: Email address -->
-          <label class="labelUser">Email</label>
+          <label class="labelStyle">Email</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="emailStatus">
@@ -100,7 +103,7 @@
             </label>
           </div>
 <!-- Input 4: Phone numbers -->
-          <label class="labelUser">Phone</label>
+          <label class="labelStyle">Phone</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="phoneStatus">
@@ -108,7 +111,7 @@
             </label>
           </div>
 <!-- Input 5: Phone numbers -->
-          <label class="labelUser">Profile Picture</label>
+          <label class="labelStyle">Profile Picture</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="picStatus">
@@ -121,23 +124,28 @@
         <img src="./assets/images/close.svg" class="close-button"/>
       </section>
 
+<!-- Input lorem Ipsum -->
 
       <section id="loremIpsumForm" class="general-form" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-        <h1 class="formTitle">Lorem Ipsum</h1>
+        <h1 class="formTitle">Lorem Ipsum Specifications</h1>
         <form id="generateLoremIpsum" class="forms">
-          <label class="labelUser" for="labelUser">Length of Paragraphs</label>
-          <input type="number" min="1" max="5" value="3" id="numberBox1" class="paraLength">
-          <label class="labelUser" for="labelUser">Type of Paragraphs</label>
-          <label class="labelUser" for="labelUser">
-            <select class="paragraphType">
-              <option value="short">Short</option>
-              <option value="medium">Medium</option>
-              <option value="long">Long</option>
-            </select>
-          </label>
 
-          <label class="labelUser">Links</label>
+          <div class="formGridTwo">
+            <label class="labelStyle" for="labelStyle">Type of Paragraphs</label>
+            <label class="labelUser" for="labelStyle">
+              <select class="paragraphType">
+                <option value="short">Short</option>
+                <option value="medium">Medium</option>
+                <option value="long">Long</option>
+              </select>
+          </label>
+          </div>
+
+          <label class="labelStyle" for="labelStyle">Length of Paragraphs</label>
+          <input class="numberBox" type="number" min="1" max="5" value="3" id="numberBox1">
+
+          <label class="labelStyle">Links</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="links">
@@ -145,7 +153,7 @@
             </label>
           </div>
 
-          <label class="labelUser">Headings</label>
+          <label class="labelStyle">Do you want headings (1 to 6)?</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="headings">
@@ -153,7 +161,7 @@
             </label>
           </div>
 
-          <label class="labelUser">Decorate</label>
+          <label class="labelStyle">Decorate</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="decorate">
@@ -161,7 +169,7 @@
             </label>
           </div>
 
-          <label class="labelUser">Prude</label>
+          <label class="labelStyle">Prude</label>
           <div>
             <label class="switch">
               <input type="checkbox" id="prude">
@@ -173,28 +181,27 @@
         </form>
       </section>
 
-
+<!-- Input place holder -->
 
       <section id="placeholderForm" class="general-form" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
 
+        <h1 class=formTitle>Placeholder Specifications</h1>
         <form id="generatePlaceholder" class="forms">
-
-        <label class="labelWidth" for="labelWidth">Width of Placeholder</label>
-          <div class="rangeElement">
-            <input type="range" min="1" max="500" value="1" id="rangeSlider2"/>               
-            <input type="number" min="1" max="500" value="1" id="numberBox2"/>
+          <div class="formGridThree">
+            <label class="labelStyle" for="labelWidth">Width of Placeholder</label>
+            <input class= rangeSlider type="range" min="1" max="500" value="250" id="rangeSlider2"/>               
+            <input class= numberBox type="number" min="1" max="500" value="250" id="numberBox2"/>
           </div> 
 
-        <label class="labelHeight" for="labelHeight">Height of Placeholder</label>
-          <div class="rangeElement">
-            <input type="range" min="1" max="500" value="1" id="rangeSlider3"/>               
-            <input type="number" min="1" max="500" value="1" id="numberBox3"/>
+          <div class="formGridThree">
+            <label class="labelStyle" for="labelHeight">Height of Placeholder</label>
+            <input class= rangeSlider type="range" min="1" max="500" value="250" id="rangeSlider3"/>               
+            <input class= numberBox type="number" min="1" max="500" value="250" id="numberBox3"/>
           </div> 
-
-        <label for="Caption">Caption for Placeholder Image</label>
-          <div class="Caption"> 
-            <input type="text" id="Caption" name="Caption"/>
+        <label class="labelStyle" for="Caption">Caption for Placeholder Image</label><br>
+          <div class="caption"> 
+            <input type="text" id="Caption" name="caption" /><br>
           </div>
 
           <button class="buttonCreatePlaceholder" id="placeholderBtn" type="submit">Create Placeholder</button>
@@ -210,6 +217,7 @@
         <section class="profiles">
 
         </section>
+
       </section>
 
       <!-- Lorem Return Section-->
@@ -220,7 +228,9 @@
           <section id="loremReturn">
             <div class="loremText"></div>
           </section>
-          <button class="copy-button">COPY</button>
+          <button id ="copy-button" class="button-design">COPY</button>
+          <button class="button-design" id="save-lorem">SAVE</button>
+          <button class="button-design" id="unsave-lorem">UNSAVE</button>
         </div>
       </section>
 
@@ -229,6 +239,7 @@
         <img src="./assets/images/close.svg" class="close-button"/>
         <div class="container-placeholder" id="placeholderReturn">
 
+          
         </div>
       </section>
 </main>
