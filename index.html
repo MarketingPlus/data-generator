@@ -127,20 +127,20 @@
         <h1 class="formTitle">Lorem Ipsum</h1>
         <form id="generateLoremIpsum" class="forms">
           <label class="labelUser" for="labelUser">Length of Paragraphs</label>
-          <input type="number" min="1" max="5" value="3" id="numberBox1">
-          <label class="labelUser" for="labelUser">Number of Paragraphs</label>
+          <input type="number" min="1" max="5" value="3" id="numberBox1" class="paraLength">
+          <label class="labelUser" for="labelUser">Type of Paragraphs</label>
           <label class="labelUser" for="labelUser">
-            <select>
-              <option class=optionStyle>Short</option>
-              <option class=optionStyle>Medium</option>
-              <option class=optionStyle>Long</option>
+            <select class="paragraphType">
+              <option value="short">Short</option>
+              <option value="medium">Medium</option>
+              <option value="long">Long</option>
             </select>
           </label>
 
-          <label class="labelUser">Do you want links?</label>
+          <label class="labelUser">Links</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="wantLinks">
+              <input type="checkbox" id="links">
               <span class="slider round"></span>
             </label>
           </div>
@@ -148,23 +148,23 @@
           <label class="labelUser">Do you want headings (1 to 6)?</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="wantHeadings">
+              <input type="checkbox" id="headings">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Do you want bold or <span id=italic>italic</span> text?</label>
+          <label class="labelUser">Decorate</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="wantBold">
+              <input type="checkbox" id="decorate">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Do you want all CAPITALS</label>
+          <label class="labelUser">Prude</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="wantCapitals">
+              <input type="checkbox" id="prude">
               <span class="slider round"></span>
             </label>
           </div>
@@ -179,6 +179,24 @@
         <img src="./assets/images/close.svg" class="close-button"/>
 
         <form id="generatePlaceholder" class="forms">
+
+        <label class="labelWidth" for="labelWidth">Width of Placeholder</label>
+          <div class="rangeElement">
+            <input type="range" min="1" max="500" value="1" id="rangeSlider2"/>               
+            <input type="number" min="1" max="500" value="1" id="numberBox2"/>
+          </div> 
+
+        <label class="labelHeight" for="labelHeight">Height of Placeholder</label>
+          <div class="rangeElement">
+            <input type="range" min="1" max="500" value="1" id="rangeSlider3"/>               
+            <input type="number" min="1" max="500" value="1" id="numberBox3"/>
+          </div> 
+
+        <label for="Caption">Caption for Placeholder Image</label><br>
+          <div class="caption"> 
+            <input type="text" id="Caption" name="caption" /><br>
+          </div>
+
           <button class="buttonCreatePlaceholder" id="placeholderBtn" type="submit">Create Placeholder</button>
         </form>
       </section>
@@ -188,35 +206,31 @@
       <!-- User Generator Return Section-->
       <section class="user-generator-return result-page" id="userReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-        <h1 class="formTitle">Genereated Output</h1>
-        <div class="container-user" id="userReturn">
-          <textarea readonly class="textArea" id="firstNameOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea>
-          <textarea readonly class="textArea" id="lastNameOutput" placeholder="Last Name" araia-label="generatedLastName"></textarea>
-          <textarea readonly class="textArea" id="emailOutput" placeholder="Email" araia-label="generatedEmail"></textarea>
-          <textarea readonly class="textArea" id="phoneOutput" placeholder="Number of Phones" araia-label="generatedPhone"></textarea>
-        </div>
-        </div>
+        <p class="user-header aktiv-grotesk-bold">Generated Users</p>
+        <section class="profiles">
+
+        </section>
       </section>
 
       <!-- Lorem Return Section-->
       <section class="lorem-ipsum-return result-page" id="loremReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
-        <div class="container-lorem">
-          <div id="loremReturn">
-          </div>
-            <div class="copyButton">
-              <i class='fa fa-clipboard' id="clipboard"></i>
-            </div>
+        <p class="user-header aktiv-grotesk-bold">Lorem Ipsum</p>
+        <div class="container-lorem aktiv-grotesk-regular">
+          <section id="loremReturn">
+            <div class="loremText"></div>
+          </section>
+          <button class="copy-button">COPY</button>
         </div>
       </section>
 
       <!-- Placeholder Return Section -->
-      <seciton class="placeholder-return result-page" id="placeholderReturnSection" style="display: none;">
+      <section class="placeholder-return result-page" id="placeholderReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
         <div class="container-placeholder" id="placeholderReturn">
 
         </div>
-      </seciton>
+      </section>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

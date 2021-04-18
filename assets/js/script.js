@@ -17,31 +17,57 @@ $("#placeholder-carousel").on("click", function() {
 })
 
 $(".close-button").on("click", function() {
+    $(".result-page").css("height", "100%");
+    $(".profiles").text(" ");
+    $(".loremText").text(" ");
+    $("#placeholderReturn").text("");
+    $("body").css({"background-image": "linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%)", "background-color": "none"})
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
     $("#placeholderForm").css("display", "none");
     $("#userReturnSection").css("display", "none");
     $("#loremReturnSection").css("display", "none");
     $("#placeholderReturnSection").css("display", "none");
-    $("#carouselExampleIndicators").css("display", "block")
+    $("#carouselExampleIndicators").css("display", "block");
 })
 
-// Creating variables based on the Range slider and Number box
-const firstName = document.getElementById("firstNameStatus")
-const lastName = document.getElementById("lastNameStatus")
-const email = document.getElementById("emailStatus")
-const phone = document.getElementById("phoneStatus")
-const picture = document.getElementById("picStatus")
+
+// Creating variables based on the input box
+const firstName = document.getElementById("firstNameStatus");
+const lastName = document.getElementById("lastNameStatus");
+const email = document.getElementById("emailStatus");
+const phone = document.getElementById("phoneStatus");
+const picture = document.getElementById("picStatus");
+const links = document.getElementById("links");
+const headings = document.getElementById("headings");
+const decorate = document.getElementById("decorate");
+const prude = document.getElementById("prude");
 
 // Add event listeners for when and input occurs, calls function "syncCharacterAmount"
 $("#rangeSlider").on('input', syncCharacterAmount);
 $("#numberBox").on('input', syncCharacterAmount);
+$("#rangeSlider2").on('input', syncCharacterAmount2);
+$("#numberBox2").on('input', syncCharacterAmount2);
+$("#rangeSlider3").on('input', syncCharacterAmount3);
+$("#numberBox3").on('input', syncCharacterAmount3);
 
 /* Function sets the value of the slider/numberbox equal to the other */
 function syncCharacterAmount(e) {
     const value = e.target.value
     rangeSlider.value = value
     numberBox.value = value
+}
+
+function syncCharacterAmount2(e) {
+    const value = e.target.value 
+    rangeSlider2.value = value 
+    numberBox2.value = value
+}
+
+function syncCharacterAmount3(e) {
+    const value = e.target.value 
+    rangeSlider3.value = value 
+    numberBox3.value = value
 }
 
 // copy to clipboard
@@ -62,56 +88,86 @@ $("#generateUser").on("submit", e => {
     const incEmail = email.checked
     const incPhone = phone.checked
     const incPicture = picture.checked
-    randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture);
-    $("#userReturnSection").css("display", "block")
-    $("#userGeneratorForm").css("display", "none");
+    if(incFirstName === false && incLastName === false && incEmail === false && incPhone === false && incPicture === false) {
+        $("#userGeneratorForm").css("display", "none");
+        $("#carouselExampleIndicators").css("display", "block")
+    } else {
+        randomUserRequest(userAmount, incFirstName, incLastName, incEmail, incPhone, incPicture);
+        $("body").css("border", "none")
+        $("#userReturnSection").css("display", "block")
+        $("#userGeneratorForm").css("display", "none");
+    }
 })
 
 // Lorem Ipsum Submit
 $("#generateLoremIpsum").on("submit", e => {
-    e.preventDefault()
-    loremIpsumRequest();
+    e.preventDefault();
+    const paragraphLength = $(".paraLength").val();
+    const typeOfParagraph = $(".paragraphType").val();
+    const linksCheck = links.checked;
+    const headingCheck = headings.checked;
+    const decorateCheck = decorate.checked;
+    const prudeCheck = prude.checked;
+    loremIpsumRequest(paragraphLength, typeOfParagraph, linksCheck, headingCheck, decorateCheck, prudeCheck);
     $("#loremReturnSection").css("display", "block")
     $("#loremIpsumForm").css("display", "none");
 })
 
 // Placeholder Image Submit
 $("#generatePlaceholder").on("submit", e => {
-    e.preventDefault()
-    placeholderRequest(300, 300, "Hello");
+    e.preventDefault();
+    const height = numberBox2.value;
+    const width = numberBox3.value;
+    const caption = Caption.value;
+
+    placeholderRequest(height, width, caption);
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");
 }) 
 
 // Random User API that fetches the data
 function randomUserRequest (users, first, last, email, phone, picture) {
-    var placeholderUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
+    var randomUserUrl = "https://randomuser.me/api/?results=" + users + "&inc=name,email,cell,picture&exc=login";
     $.ajax({
-        url: placeholderUrl,
+        url: randomUserUrl,
         method: "GET"
     }).then(function(response) {
-        console.log("Random User Response ------")
         var results = response.results;
+        if(users > 1) {
+            $(".result-page").css("height", "auto");
+        }
         showRandomUserData(first, last, email, phone, picture, results);
     }) 
 }
 
 // Lorem Ipsum API that fetches the data
-function loremIpsumRequest () {
-    var loremIpsumUrl = "https://loripsum.net/api";
+function loremIpsumRequest (paragraphLength, paragraphType, links, headings, decorate, prude) {
+    var loremIpsumUrl = "https://loripsum.net/api/" + paragraphLength + "/" + paragraphType;
+    if (links === true) {
+        loremIpsumUrl = loremIpsumUrl + "/link"
+    }
+    if (headings === true) {
+        loremIpsumUrl = loremIpsumUrl + "/headers"
+    }
+    if (decorate === true) {
+        loremIpsumUrl = loremIpsumUrl + "/decorate"
+    }
+    if (prude === true) {
+        loremIpsumUrl = loremIpsumUrl + "/prude"
+    }
     $.ajax({
         url: loremIpsumUrl,
         method: "GET"
     }).then(function(loremResponse) {
-        console.log("Lorem Ipsum Response ------")
-        console.log(loremResponse)
+        $(".result-page").css("height", "auto");
+        $("body").css({"background-image": "none", "background-color": "white"})
         showLoremIpsumData(loremResponse);
     })
 }
 
 // Picture Placeholder API that fetches the data
-function placeholderRequest (width, height, text) {
-    var placeholderUrl = "https://via.placeholder.com/"+ width + "x" + height + "?text=" + text;
+function placeholderRequest (height, width, caption) {
+    var placeholderUrl = "http://via.placeholder.com/"+ height + "x" + width + "?text=" + caption;
     console.log("Placeholder Image Response ------")
     console.log(placeholderUrl);
     showPlaceholderData(placeholderUrl);
@@ -119,42 +175,53 @@ function placeholderRequest (width, height, text) {
 
 // Function that displays the results of specified random user requirements
 function showRandomUserData (first, last, email, phone, picture, results) {
-    console.log(results);
     for(var i = 0; i < results.length; i++) {
+        var userContainerHtml = $(`<div class="container-user${i} container-user" id="userReturn">
+        <section class="profile-picture-container${i} profile-picture-container">
+          <img class="pro-pic${i} pro-pic"/>
+        </section>
+        <section class="profile-details${i} profile-details">
+          <p class="text-area aktiv-grotesk-bold name-text${i} name-text"></p>
+          <p class="text-area email-text${i} email-text"></p>
+          <p class="text-area phone-text${i} phone-text"></p>
+        </section>
+      </div>`)
+      $(".profiles").append(userContainerHtml);
         if(first === true) {
-            console.log(results[i].name.first)
-        } else {
-            console.log("Does not want first name")
+            var firstName = results[i].name.first
+            $(".name-text" + i).append(firstName)
         }
         if(last === true) {
-            console.log(results[i].name.last)
-        } else {
-            console.log("Does not want last name")
+            var lastName = results[i].name.last
+            $(".name-text" + i).append(" " + lastName)
         }
         if(email === true) {
-            console.log(results[i].email)
-        } else {
-            console.log("Does not want email")
+            var emailRes = results[i].email
+            $(".email-text" + i).append(emailRes)
         }
         if(phone === true) {
-            console.log(results[i].cell)
-        } else {
-            console.log("Does not want phone number")
+            var phoneRes = results[i].cell
+            $(".phone-text" + i).append(phoneRes)
         }
         if(picture === true) {
-            console.log(results[i].picture.large)
-        } else {
-            console.log("Does not want picture")
+            var picRes = results[i].picture.large
+            $(".pro-pic" + i).attr('src', picRes)
         }
     }
 }
 
 // Function that displays the results of specified lorem ipsum requirements
 function showLoremIpsumData (generatedLorem) {
-    var postLorem = $(`
-            <textarea readonly style="resize: none;" id="copyText">${generatedLorem}</textarea>
-            `);
-        $("#loremReturn").append(postLorem)
+        $(".loremText").append(generatedLorem)
+        // Runs the copy button functionality
+        $(".copy-button").on("click", copyToClipboard(".loremText"))
+        function copyToClipboard (element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+        };
 };
 
 // Function that displays the results of specified placeholder requirements
@@ -162,23 +229,9 @@ function showPlaceholderData (placeholderUrl) {
     var placeholderImg = $(`
         <img src="${placeholderUrl}"/>
             <a href="${placeholderUrl}" target="_blank">
-                <button id="downloadBtn" style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
+                <button style="margin-top: 2vh" class="btn copy-button"><i class="fa fa-download"></i> Download</button>
             </a>
     `);
 
     $('#placeholderReturn').append(placeholderImg)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
