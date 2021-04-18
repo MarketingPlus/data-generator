@@ -152,10 +152,12 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
         if(storedLorem) {
             $(".loremText").append(storedLorem);
             $("#save-lorem").css("display", "none")
+            $("#unsave-lorem").css("display", "block")
             copySequence();
         } else {
             $(".loremText").append(loremResponse)
             $("#save-lorem").css("display", "block")
+            $("#unsave-lorem").css("display", "none")
             copySequence();
         }
     })
