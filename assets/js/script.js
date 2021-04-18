@@ -119,7 +119,6 @@ $("#generatePlaceholder").on("submit", e => {
     const height = numberBox2.value;
     const width = numberBox3.value;
     const caption = Caption.value;
-
     placeholderRequest(height, width, caption);
     $("#placeholderReturnSection").css("display", "block")
     $("#placeholderForm").css("display", "none");

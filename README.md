@@ -8,7 +8,7 @@
 
 ## DESCRIPTION 😊
 
-All in one Data generators which is great for all developers when they want some test data on their sites we generate User data, Placeholder Text (Lorem Ipsum), and Placeholder Images.
+All in one Data generators are great for all developers when they want some test data on their sites. This data generater creates of User data, Placeholder Text (Lorem Ipsum), and Placeholder Images with features that can be customised to each web developer's individual needs.
 
 ## FEATURES 💥
 
@@ -20,7 +20,7 @@ All in one Data generators which is great for all developers when they want some
 Create unique and good looking placeholder text with our generator by choosing from these options:
 
 - Number of paragraphs
-- Lenght of paragraphs -
+- Length of paragraphs -
   - Short
   - Medium
   - Long
@@ -34,7 +34,7 @@ Create unique and good looking placeholder text with our generator by choosing f
 
 ### User Options ✅
 
-Create perfect sized image placeholders with custom text with our generator by choosing from these options:
+Create custom image placeholders and text with our generator with these options:
 
 - Width of placeholder image
 - Height of placeholder image
@@ -45,7 +45,7 @@ Create perfect sized image placeholders with custom text with our generator by c
 
 ### User Options ✅
 
-Create fake customer data to text your softwares capability with out generator by choosing from these options:
+Create fake customer data to test your software's capability with our generator with these options:
 
 - Number of users
 - Include First name
@@ -56,9 +56,10 @@ Create fake customer data to text your softwares capability with out generator b
 
 ## REPOSITORY 📁
 
-What our team have been doing to keep our repo clean and up to date:
+In order to keep our repo clean and up to date, we have:
 
-- we have constantly used git add, commit and push to ensure all changes have been updated to the github repo
+- Constantly used git add, commit and push to ensure all changes have been updated to the github repo
+- Communicated and worked through all pull requests to minimise possible conflict
 - Added extensive comments describing changes and what they could possibly mean for the client or developer
-- Created a high quality read me file using different methods to convey and display info
+- Created a high quality read me file that comprehensively describes the different methods our data generator can be used
 - Resolving git conflicts efficiently and making sure we merge all the appropriate lines of code
