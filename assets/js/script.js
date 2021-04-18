@@ -214,7 +214,7 @@ function showRandomUserData (first, last, email, phone, picture, results) {
 function showLoremIpsumData (generatedLorem) {
         $(".loremText").append(generatedLorem)
         // Runs the copy button functionality
-        $(".copy-button").on("click", copyToClipboard(".loremText"))
+        $("#copy-button").on("click", copyToClipboard(".loremText"))
         function copyToClipboard (element) {
             var $temp = $("<input>");
             $("body").append($temp);
@@ -229,8 +229,9 @@ function showPlaceholderData (placeholderUrl) {
     var placeholderImg = $(`
         <img src="${placeholderUrl}"/>
             <a href="${placeholderUrl}" target="_blank">
-                <button style="margin-top: 2vh" class="btn copy-button"><i class="fa fa-download"></i> Download</button>
+                <button style="margin-top: 2vh" class="btn button-design" id="save-picture"><i class="fa fa-download"></i> DOWNLOAD</button>
             </a>
+            <button class="button-design">SAVE</button>
     `);
 
     $('#placeholderReturn').append(placeholderImg)
