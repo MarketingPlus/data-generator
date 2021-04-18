@@ -451,3 +451,11 @@ h6 {
   align-items: center;
   margin: auto;
 }
+
+#save-lorem {
+  display: none;
+}
+
+#unsave-lorem {
+  display: none;
+}
