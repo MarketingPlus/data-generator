@@ -18,8 +18,9 @@ $("#placeholder-carousel").on("click", function() {
 
 $(".close-button").on("click", function() {
     $(".result-page").css("height", "100%");
-    $(".profiles").text(" ")
-    $(".loremText").text(" ")
+    $(".profiles").text(" ");
+    $(".loremText").text(" ");
+    $("#placeholderReturn").text("");
     $("body").css({"background-image": "linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%)", "background-color": "none"})
     $("#loremIpsumForm").css("display", "none");
     $("#userGeneratorForm").css("display", "none");
@@ -228,7 +229,7 @@ function showPlaceholderData (placeholderUrl) {
     var placeholderImg = $(`
         <img src="${placeholderUrl}"/>
             <a href="${placeholderUrl}" target="_blank">
-                <button id="downloadBtn" style="margin-top: 2vh" class="btn"><i class="fa fa-download"></i> Download</button>
+                <button style="margin-top: 2vh" class="btn copy-button"><i class="fa fa-download"></i> Download</button>
             </a>
     `);
 
