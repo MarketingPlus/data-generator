@@ -3,6 +3,8 @@
   --general-container: 420px;
   --border-radius: 15px;
   --rangeSliderBarHeight: 7px;
+  --switchHeight: 34px;
+  --borderColour: 1px solid rgba(255, 255, 255, 0.26);
 }
 
 /* Fonts used */
@@ -97,15 +99,22 @@ body {
   cursor: pointer;
 }
 
+/* Section for form styling */
+
 .formTitle {
+  margin: 7%;
   margin-bottom: 20px;
+  color: white;
   text-align: center;
 }
 
-/* Styling for the label besides the slider */
-.labelUser {
+/* Styling for the form element labels */
+.labelStyle {
+  float: left;
+  margin: 0px;
   font-family: aktiv-grotesk, sans-serif;
-  font-weight: bold;
+  font-weight: normal;
+  color: white;
 }
 
 /* form styling, grid-template-columns allows the form elements to show in columns */
@@ -113,10 +122,23 @@ body {
   font-family: aktiv-grotesk, sans-serif;
   display: grid;
   grid-template-columns: auto auto;
-  row-gap: 10%;
-  column-gap: 20%;
+  row-gap: 16px;
+  column-gap: 40%;
   justify-content: center;
   align-items: center;
+}
+
+.formGridThree{
+  font-family: aktiv-grotesk, sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 2fr 60px;
+  column-gap: 10%;
+  grid-column: span 2;
+}
+
+.returnPage {
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  border: 1px solid white;
 }
 
 .caption {
@@ -126,21 +148,26 @@ body {
   justify-content: flex-end;
 }
 
-.rangeElement {
-  align-items: center;
-  float: right;
-}
-
-/* Range slider */
-#rangeSlider {
+.rangeSlider {
   -webkit-appearance: none;
-  width: 60%;
+  margin-top: 10px;
+  width: 100%;
   height: var(--rangeSliderBarHeight);
   outline: none;
   border-radius: 3px;
 }
 
-#rangeSlider::-webkit-slider-thumb {
+.rangeElement {
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  float: right;
+}
+
+/* Range slider */
+
+
+.rangeSlider::-webkit-slider-thumb {
   -webkit-appearance: default-button;
   width: 48px;
   height: 48px;
@@ -149,15 +176,15 @@ body {
   position: relative;
 }
 
-#numberBox {
+.numberBox {
   border-radius: 34px;
-  float: right;
+  border: var(--borderColour);
   width: 60px;
-  height: 34px;
+  height: var(--switchHeight);
   text-align: center;
   font-weight: bold;
   color: black;
-  background-color: #ccc;
+  background-color: white;
 }
 
 #rangeOutput {
