@@ -154,11 +154,6 @@ body {
   border: 1px solid white;
 }
 
-.lorem-ipsum-return {
-  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
-  border: 1px solid white;
-}
-
 .placeholder-return {
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   border: 1px solid white;
@@ -238,7 +233,7 @@ body {
 }
 
 .text-area {
-  color: #333333;
+  color: white;
   font-size: 16px;
 }
 
@@ -246,8 +241,7 @@ body {
   text-align: center;
   font-size: 35px;
   margin-top: 90px;
-  margin-bottom: 40px;
-  color: #333333;
+  color: white;
   padding: 0px 20px;
   line-height: 50px;
   text-transform: uppercase;
@@ -258,7 +252,16 @@ body {
   display: grid;
   row-gap: 20px;
   margin-top: 200px;
-  padding-bottom: 160px;
+  margin-bottom: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border: 1px solid rgba(255, 255, 255, 0.26);
 }
 
 .name-text {
@@ -455,9 +458,7 @@ input:checked + .slider:before {
   align-items: center;
   position: absolute;
   width: 100%;
-  height: 100%;
-  background-color: white;
-  padding-bottom: 150px;
+  height: auto;
 }
 
 .loremText {
@@ -466,7 +467,7 @@ input:checked + .slider:before {
   margin: 40px auto;
   padding: 25px;
   border-radius: 10px;
-  background-color: rgba(245, 245, 245, 0.678);
+  background-color: white;
   color: #333333;
 }
 
@@ -490,12 +491,14 @@ h6 {
   margin-top: 20px;
   border: none;
   border-radius: 5px;
-  background-color: rgba(245, 245, 245, 0.452);
+  color: white;
+  background-color:rgba(255, 255, 255, 0.295);
   transition: all 100ms ease-in-out;
 }
 
 .button-design:hover {
   background-color: white;
+  color: #333333;
   box-shadow: 5px 5px #333333;
 }
 
@@ -521,12 +524,16 @@ h6 {
   justify-content: center;
   align-items: center;
   margin: auto;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
 }
 
 #save-lorem {
   display: none;
+  margin-bottom: 50px;
 }
 
 #unsave-lorem {
   display: none;
+  margin-bottom: 50px;
 }
+
