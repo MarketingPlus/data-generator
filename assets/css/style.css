@@ -409,20 +409,26 @@ h6 {
   font-size: 30px;
 }
 
-.copy-button {
+.save-button-container {
+ display: flex;
+ justify-content: center;
+}
+
+.button-design {
   padding: 10px 20px;
+  margin-top: 20px;
   border: none;
   border-radius: 5px;
   background-color: rgba(245, 245, 245, 0.452);
   transition: all 100ms ease-in-out;
 }
 
-.copy-button:hover {
+.button-design:hover {
   background-color: white;
   box-shadow: 5px 5px #333333;
 }
 
-.copy-button:active {
+.button-design:active {
   color: white;
   font-size: 13px;
 }
@@ -444,4 +450,12 @@ h6 {
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+#save-lorem {
+  display: none;
+}
+
+#unsave-lorem {
+  display: none;
 }
