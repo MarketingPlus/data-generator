@@ -145,7 +145,7 @@ function loremIpsumRequest (paragraphLength, paragraphType, links, headings, dec
         method: "GET"
     }).then(function(loremResponse) {
         $(".result-page").css("height", "auto");
-        $("body").css({"background-image": "none", "background-color": "white"})
+        $("body").css({"background-image": "linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%)", "background-color": "white"})
         var storedLorem = localStorage.getItem("loremData");
         saveLorem(loremResponse);
         unsaveLorem();
