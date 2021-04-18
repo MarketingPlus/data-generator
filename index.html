@@ -131,40 +131,40 @@
           <label class="labelUser" for="labelUser">Number of Paragraphs</label>
           <label class="labelUser" for="labelUser">
             <select>
-              <option>Short</option>
-              <option>Medyium</option>
-              <option>Lon</option>
+              <option class=optionStyle>Short</option>
+              <option class=optionStyle>Medium</option>
+              <option class=optionStyle>Long</option>
             </select>
           </label>
 
-          <label class="labelUser">Do you want links</label>
+          <label class="labelUser">Do you want links?</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="wantLinks">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Headings</label>
+          <label class="labelUser">Do you want headings (1 to 6)?</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="wantHeadings">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Last Name</label>
+          <label class="labelUser">Do you want bold or <span id=italic>italic</span> text?</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="wantBold">
               <span class="slider round"></span>
             </label>
           </div>
 
-          <label class="labelUser">Last Name</label>
+          <label class="labelUser">Do you want all CAPITALS</label>
           <div>
             <label class="switch">
-              <input type="checkbox" id="lastNameStatus">
+              <input type="checkbox" id="wantCapitals">
               <span class="slider round"></span>
             </label>
           </div>
@@ -190,8 +190,8 @@
         <img src="./assets/images/close.svg" class="close-button"/>
         <h1 class="formTitle">Genereated Output</h1>
         <div class="container-user" id="userReturn">
-          <textarea readonly class="textArea" id="nameOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea>
-          <textarea readonly class="textArea" id="nameOutput" placeholder="Last Name" araia-label="generatedLastName"></textarea>
+          <textarea readonly class="textArea" id="firstNameOutput" placeholder="First Name" araia-label="generatedFirstName"></textarea>
+          <textarea readonly class="textArea" id="lastNameOutput" placeholder="Last Name" araia-label="generatedLastName"></textarea>
           <textarea readonly class="textArea" id="emailOutput" placeholder="Email" araia-label="generatedEmail"></textarea>
           <textarea readonly class="textArea" id="phoneOutput" placeholder="Number of Phones" araia-label="generatedPhone"></textarea>
         </div>

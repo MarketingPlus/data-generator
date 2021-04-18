@@ -175,10 +175,20 @@ body {
 .textArea {
   resize: none;
 }
+/*Styles the span in the switches for Lorem Ipsum*/
+#italic {
+  font-style: italic;
+}
 
 #emailOutput {
   grid-column: span 2;
 }
+
+.optionStyle {
+  font-family: aktiv-grotesk, sans-serif;
+  font-weight: bold;
+}
+
 /* Styling the button using the variable for border radius for consistency */
 .buttonCreateUsers,
 #downloadBtn,
