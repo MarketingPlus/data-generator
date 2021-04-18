@@ -71,7 +71,7 @@
         <h1 class="formTitle">User Specifications</h1>
         <form id= "generateUser" class= "forms">
 <!-- Range slider -->
-          <div class=formGridThree>
+          <div class="formGridThree">
             <label class="labelStyle" for="labelUser">Number of Users</label>
               <input class= rangeSlider type="range" min="1" max="5" value="3" id="rangeSlider">               
               <input class= numberBox type="number" min="1" max="5" value="3" id="numberBox">
@@ -130,14 +130,18 @@
         <img src="./assets/images/close.svg" class="close-button"/>
         <h1 class="formTitle">Lorem Ipsum Specifications</h1>
         <form id="generateLoremIpsum" class="forms">
-          <label class="labelStyle" for="labelStyle">Type of Paragraphs</label>
-          <label class="labelUser" for="labelStyle">
-            <select class="paragraphType">
-              <option value="short">Short</option>
-              <option value="medium">Medium</option>
-              <option value="long">Long</option>
-            </select>
+
+          <div class="formGridTwo">
+            <label class="labelStyle" for="labelStyle">Type of Paragraphs</label>
+            <label class="labelUser" for="labelStyle">
+              <select class="paragraphType">
+                <option value="short">Short</option>
+                <option value="medium">Medium</option>
+                <option value="long">Long</option>
+              </select>
           </label>
+          </div>
+
           <label class="labelStyle" for="labelStyle">Length of Paragraphs</label>
           <input class="numberBox" type="number" min="1" max="5" value="3" id="numberBox1">
 
@@ -208,7 +212,7 @@
 <!-- Return Page Sections -->
 
       <!-- User Generator Return Section-->
-      <section class="returnPage" id="userReturnSection" style="display: none;">
+      <section class="user-generator-return result-page" id="userReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
         <p class="user-header aktiv-grotesk-bold">Generated Users</p>
         <section class="profiles">
@@ -217,7 +221,7 @@
       </section>
 
       <!-- Lorem Return Section-->
-      <section class="returnPage" id="loremReturnSection" style="display: none;">
+      <section class="lorem-ipsum-return result-page" id="loremReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
         <p class="user-header aktiv-grotesk-bold">Lorem Ipsum</p>
         <div class="container-lorem aktiv-grotesk-regular">
@@ -229,7 +233,7 @@
       </section>
 
       <!-- Placeholder Return Section -->
-      <section class="returnPage return-page" id="placeholderReturnSection" style="display: none;">
+      <section class="placeholder-return result-page" id="placeholderReturnSection" style="display: none;">
         <img src="./assets/images/close.svg" class="close-button"/>
         <div class="container-placeholder" id="placeholderReturn">
 
