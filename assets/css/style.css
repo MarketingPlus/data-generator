@@ -554,10 +554,19 @@ h6 {
 /* about page */
 .white-text {
   color: white;
+  text-align: center;
+  padding: 20px;
 }
+
+.about-desc {
+  font-size: 13px;
+  line-height: 1.5rem;
+}
+
 .about-page {
   margin-top: 5vh;
-  height: 100%;
+  height: auto;
+  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
   justify-content: center;
   align-items: center;
 }
@@ -566,6 +575,7 @@ h6 {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 40px;
 }
 
 #about-title {
@@ -573,7 +583,7 @@ h6 {
 }
 
 .about-card {
-  width: 50vw;
+  width: 80%;
   margin: 3vh;
   border-radius: var(--border-radius);
   background: rgba(255, 255, 255, 0.2);
@@ -590,12 +600,26 @@ h6 {
   margin-top: 5vh;
   bottom: 0%;
   margin-bottom: 5vh;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-about:hover {
+  text-decoration: none;
 }
 
 footer {
   position: fixed;
   width: 100%;
   bottom: 0%;
+}
+
+.footer-select {
+  background-color: rgba(255, 255, 255, 0.089) !important;
+}
+
+.section-desc {
+  color: white;
 }
 
 #footer-bg {
@@ -630,5 +654,11 @@ footer {
 
   #Caption {
     width: 120px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .overall-container {
+    margin: 100px auto;
   }
 }
