@@ -590,12 +590,22 @@ h6 {
   margin-top: 5vh;
   bottom: 0%;
   margin-bottom: 5vh;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-about:hover {
+  text-decoration: none;
 }
 
 footer {
   position: fixed;
   width: 100%;
   bottom: 0%;
+}
+
+.footer-select {
+  background-color: rgba(255, 255, 255, 0.089) !important;
 }
 
 #footer-bg {
@@ -630,5 +640,11 @@ footer {
 
   #Caption {
     width: 120px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .overall-container {
+    margin: 100px auto;
   }
 }
