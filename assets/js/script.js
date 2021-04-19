@@ -42,7 +42,6 @@ $(".btn-about").on("click", function() {
     $("#carouselExampleIndicators").css("display", "none")
     $(".about-page").css("display", "block");
     $("footer").css("display", "none");
-    $("body").css("background-size", "cover");
 })
 
 
