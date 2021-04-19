@@ -4,16 +4,19 @@
 $("#user-generator-carousel").on("click", function() {
     $("#userGeneratorForm").css("display", "block")
     $("#carouselExampleIndicators").css("display", "none")
+    $("footer").css("display", "none")
 })
 
 $("#lorem-ipsum-carousel").on("click", function() {
     $("#loremIpsumForm").css("display", "block")
     $("#carouselExampleIndicators").css("display", "none")
+    $("footer").css("display", "none")
 })
 
 $("#placeholder-carousel").on("click", function() {
     $("#placeholderForm").css("display", "block")
     $("#carouselExampleIndicators").css("display", "none")
+    $("footer").css("display", "none")
 })
 
 $(".close-button").on("click", function() {
@@ -29,6 +32,17 @@ $(".close-button").on("click", function() {
     $("#loremReturnSection").css("display", "none");
     $("#placeholderReturnSection").css("display", "none");
     $("#carouselExampleIndicators").css("display", "block");
+    $("footer").css("display", "block");
+    $(".about-page").css("display", "none");
+
+
+})
+
+$(".btn-about").on("click", function() {
+    $("#carouselExampleIndicators").css("display", "none")
+    $(".about-page").css("display", "block");
+    $("footer").css("display", "none");
+    $("body").css("background-size", "cover");
 })
 
 
