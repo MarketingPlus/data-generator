@@ -63,3 +63,10 @@ In order to keep our repo clean and up to date, we have:
 - Added extensive comments describing changes and what they could possibly mean for the client or developer
 - Created a high quality read me file that comprehensively describes the different methods our data generator can be used
 - Resolving git conflicts efficiently and making sure we merge all the appropriate lines of code
+
+
+## License
+
+  Copyright (c) Benjamin Wilson. All rights reserved.
+  
+  Licensed under the [MIT](LICENSE) license.
